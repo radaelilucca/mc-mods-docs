@@ -1,0 +1,17 @@
+{
+  "name": "radaeli-mod-docs",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@12.15.0",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "check": "node scripts/check-docs.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "^3.5.13"
+  }
+}

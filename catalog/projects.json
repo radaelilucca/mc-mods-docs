@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    { "slug": "ae2-cloud", "name": "AE2 Cloud", "kind": "mod", "status": "planned" },
+    { "slug": "better-radio", "name": "Better Radio", "kind": "mod", "status": "planned" },
+    { "slug": "cc-aeroworks", "name": "CC Aeroworks", "kind": "mod", "status": "excluded-fork" },
+    { "slug": "colonies-alfred", "name": "Colonies Alfred", "kind": "mod", "status": "planned" },
+    { "slug": "copycat-grate", "name": "Copycat Grate", "kind": "mod", "status": "planned" },
+    { "slug": "copycat-replace", "name": "Create: Copycat Replace!", "kind": "mod", "status": "planned" },
+    { "slug": "create-deco-staff", "name": "Create Deco Staff", "kind": "mod", "status": "planned" },
+    { "slug": "create-larger-recipe-gauges", "name": "Create Larger Recipe Gauges", "kind": "mod", "status": "planned" },
+    { "slug": "create-on-demand", "name": "Create: On Demand", "kind": "mod", "status": "planned" },
+    { "slug": "create-stock-market", "name": "Create Stock Market", "kind": "mod", "status": "planned" },
+    { "slug": "dynamic-block-pallets", "name": "Dynamic Block Pallets", "kind": "mod", "status": "planned" },
+    { "slug": "easy-block-pallets", "name": "Easy Block Pallets", "kind": "mod", "status": "planned" },
+    { "slug": "flight-safety-instruments", "name": "Flight Safety Instruments", "kind": "mod", "status": "planned" },
+    { "slug": "hotbar-locker", "name": "Hotbar Locker", "kind": "mod", "status": "planned" },
+    { "slug": "hqspeaker-sable-compat", "name": "HQ Speaker Sable Compatibility", "kind": "mod", "status": "planned" },
+    { "slug": "keybinds-wheel", "name": "Keybinds Wheel", "kind": "mod", "status": "planned" },
+    { "slug": "minecolonies-butler", "name": "MineColonies Butler", "kind": "mod", "status": "planned" },
+    { "slug": "minecolonies-mage-port", "name": "MineColonies Mage Port", "kind": "mod", "status": "planned" },
+    { "slug": "neo-voxy", "name": "Neo Voxy", "kind": "mod", "status": "excluded-fork" },
+    { "slug": "pets", "name": "Exotic Pets", "kind": "mod", "status": "planned" },
+    { "slug": "r-ui-lib", "name": "R-Ui Lib", "kind": "library", "status": "published" },
+    { "slug": "sable-horses", "name": "Sable Horses", "kind": "mod", "status": "planned" },
+    { "slug": "simply-light-smart", "name": "Simply Light Smart", "kind": "mod", "status": "planned" },
+    { "slug": "sophisticated-backpack-is-addon", "name": "Sophisticated Backpacks Addon", "kind": "mod", "status": "planned" },
+    { "slug": "sophisticatedbackpack-is-addon", "name": "Sophisticated Backpacks Addon (legacy copy)", "kind": "workspace-copy", "status": "excluded-copy" },
+    { "slug": "voxy-multiversion", "name": "Voxy Multiversion", "kind": "upstream-fork", "status": "excluded-fork" }
+  ]
+}
