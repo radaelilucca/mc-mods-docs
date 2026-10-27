@@ -13,6 +13,8 @@ R-Ui Lib gives Minecraft mods a shared set of reusable components for building c
 | 1.20.1 | Forge | 47.4.20 |
 | 1.21.1 | NeoForge | 21.1.236 |
 
+**Documentation reflects R-Ui Lib 0.7.0.**
+
 ## For players
 
 Install the library alongside a compatible mod that requires it, using matching Minecraft and loader versions. The consumer mod determines which screens and features use the library.
@@ -28,8 +30,6 @@ Build screens from layouts, interactive controls, item-selection components, and
 - [Development playground](./technical/playground)
 - [Loaders and validation](./technical/loaders-and-validation)
 
-## Project history
+## Changelog
 
-Historical plans describe the original toolkit proposal. Their proposed component lists and milestones are not a statement of current implementation.
-
-[Archived plans and status](./history/archived-plans)
+[View the R-Ui Lib changelog](./changelog)

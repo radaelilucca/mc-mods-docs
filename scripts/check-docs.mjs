@@ -14,17 +14,15 @@ const requiredPages = [
   'technical/component-examples.md',
   'technical/playground.md',
   'technical/loaders-and-validation.md',
-  'history/archived-plans.md'
+  'changelog.md'
 ]
 const flightSafetyPages = [
   'index.md',
+  'changelog.md',
   'player/index.md',
-  'technical/cc-tweaked.md',
-  'technical/sensors.md',
-  'technical/avionics-network.md',
-  'technical/modular-table.md',
-  'technical/fms.md',
-  'technical/gpws.md'
+  'player/sensors.md',
+  'player/computer-craft.md',
+  'technical/development.md'
 ]
 const failures = []
 
@@ -38,7 +36,7 @@ for (const locale of locales) {
 for (const locale of locales) {
   for (const page of flightSafetyPages) {
     const path = join(sourceRoot, 'projects', 'flight-safety-instruments', locale, page)
-    if (!existsSync(path)) failures.push(`Missing ${locale} Flight Safety Instruments page: ${relative(root, path)}`)
+    if (!existsSync(path)) failures.push(`Missing ${locale} Fly by Instruments page: ${relative(root, path)}`)
   }
 }
 
@@ -48,7 +46,9 @@ if (!config.includes("source.match(/^projects\\/([^/]+)\\/(en|pt-BR)\\/(.+)$/)")
 }
 for (const locale of locales) {
   if (!config.includes(`'/${locale}/mods/r-ui-lib/`)) failures.push(`Missing ${locale} R-Ui Lib navigation or sidebar.`)
-  if (!config.includes(`'/${locale}/mods/flight-safety-instruments/`)) failures.push(`Missing ${locale} Flight Safety Instruments navigation or sidebar.`)
+  if (!config.includes(`'/${locale}/mods/flight-safety-instruments/`)) failures.push(`Missing ${locale} Fly by Instruments navigation or sidebar.`)
+  if (!config.includes(`'/${locale}/mods/flight-safety-instruments/player/computer-craft'`)) failures.push(`Missing ${locale} Computer Craft player guide navigation.`)
+  if (!config.includes(`'/${locale}/mods/flight-safety-instruments/player/sensors'`)) failures.push(`Missing ${locale} sensor player guide navigation.`)
 }
 
 const manifest = JSON.parse(readFileSync(join(root, 'catalog', 'projects.json'), 'utf8'))
@@ -59,6 +59,28 @@ if (!pilot || pilot.status !== 'published' || pilot.kind !== 'library') {
 if (manifest.projects.some((project) => project.status === 'published' && project.slug !== 'r-ui-lib')) {
   failures.push('Only the reviewed R-Ui Lib pilot should be marked as published in this first delivery.')
 }
+for (const project of manifest.projects.filter((entry) => entry.documentedVersion)) {
+  for (const locale of locales) {
+    const overview = join(sourceRoot, 'projects', project.slug, locale, 'index.md')
+    if (!existsSync(overview)) {
+      failures.push(`Missing ${locale} overview for versioned project ${project.slug}.`)
+    } else if (!readFileSync(overview, 'utf8').includes(project.documentedVersion)) {
+      failures.push(`The ${locale} overview for ${project.slug} does not state documented version ${project.documentedVersion}.`)
+    }
+    const sidebarLabel = `{ text: '${project.name} - ${project.documentedVersion}', items:`
+    if (!config.includes(sidebarLabel)) {
+      failures.push(`Missing versioned ${locale} sidebar title for ${project.slug}: ${project.name} ${project.documentedVersion}.`)
+    }
+  }
+}
+for (const slug of ['r-ui-lib', 'flight-safety-instruments']) {
+  for (const locale of locales) {
+    const changelog = join(sourceRoot, 'projects', slug, locale, 'changelog.md')
+    if (existsSync(changelog) && !/^## \[\d+\.\d+\.\d+\]/m.test(readFileSync(changelog, 'utf8'))) {
+      failures.push(`The ${locale} changelog page for ${slug} must include release entries in its body.`)
+    }
+  }
+}
 
 function markdownFiles(directory) {
   if (!existsSync(directory)) return []
@@ -68,7 +90,24 @@ function markdownFiles(directory) {
   })
 }
 
+for (const locale of locales) {
+  const oldComputerCraftPages = markdownFiles(join(sourceRoot, 'projects', 'flight-safety-instruments', locale, 'player', 'cc-tweaked'))
+  if (oldComputerCraftPages.length) failures.push(`${locale} Fly by Instruments Computer Craft content should be consolidated into one player page.`)
+  const developerPages = markdownFiles(join(sourceRoot, 'projects', 'flight-safety-instruments', locale, 'technical'))
+  for (const path of developerPages) {
+    if (relative(join(sourceRoot, 'projects', 'flight-safety-instruments', locale, 'technical'), path).split(sep).join('/') !== 'development.md') {
+      failures.push(`Fly by Instruments developer docs should be limited to mod development topics: ${relative(root, path)}`)
+    }
+  }
+}
+
 const allMarkdown = markdownFiles(sourceRoot)
+for (const path of allMarkdown) {
+  const projectRelativePath = relative(join(sourceRoot, 'projects'), path).split(sep).join('/').toLowerCase()
+  if (/(^|\/)(history|[^/]*(?:prd|plan|agent)[^/]*)($|\/)/.test(projectRelativePath)) {
+    failures.push(`Project history, PRDs, planning documents, and agent guides are not publishable: ${relative(root, path)}`)
+  }
+}
 const routeToSource = new Map(allMarkdown.map((path) => [routePath(relative(sourceRoot, path)), path]))
 
 for (const path of allMarkdown) {
@@ -113,5 +152,5 @@ if (failures.length) {
   console.error(failures.map((failure) => `- ${failure}`).join('\n'))
   process.exitCode = 1
 } else {
-  console.log(`Documentation check passed: ${requiredPages.length} translated R-Ui Lib pages, ${flightSafetyPages.length} translated Flight Safety Instruments pages, project routes, navigation, and local links.`)
+  console.log(`Documentation check passed: ${requiredPages.length} translated R-Ui Lib pages, ${flightSafetyPages.length} translated Fly by Instruments pages, project routes, navigation, and local links.`)
 }

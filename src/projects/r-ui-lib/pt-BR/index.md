@@ -13,6 +13,8 @@ A R-Ui Lib oferece aos mods de Minecraft um conjunto compartilhado de componente
 | 1.20.1 | Forge | 47.4.20 |
 | 1.21.1 | NeoForge | 21.1.236 |
 
+**Documentação referente à versão 0.7.0 da R-Ui Lib.**
+
 ## Para jogadores
 
 Instale a biblioteca junto com um mod compatível que a exija, usando as mesmas versões de Minecraft e loader. O mod que utiliza a biblioteca determina quais telas e recursos estão disponíveis.
@@ -28,8 +30,6 @@ Crie telas com layouts, controles interativos, componentes de seleção de itens
 - [Playground de desenvolvimento](./technical/playground)
 - [Loaders e validação](./technical/loaders-and-validation)
 
-## Histórico do projeto
+## Changelog
 
-Os planos históricos registram a proposta original do toolkit. As listas de componentes e etapas propostas não indicam funcionalidades atuais.
-
-[Planos arquivados e status](./history/archived-plans)
+[Consultar o changelog da R-Ui Lib](./changelog)

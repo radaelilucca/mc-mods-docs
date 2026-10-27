@@ -48,11 +48,14 @@ export default defineConfig({
         nav: [
           { text: 'Mods', link: '/en/mods/' },
           { text: 'R-Ui Lib', link: '/en/mods/r-ui-lib/' },
-          { text: 'Flight Safety Instruments', link: '/en/mods/flight-safety-instruments/' }
+          { text: 'Fly by Instruments', link: '/en/mods/flight-safety-instruments/' }
         ],
         sidebar: {
           '/en/mods/r-ui-lib/': [
-            { text: 'R-Ui Lib', items: [{ text: 'Overview', link: '/en/mods/r-ui-lib/' }] },
+            { text: 'R-Ui Lib - 0.7.0', items: [
+              { text: 'Overview', link: '/en/mods/r-ui-lib/' },
+              { text: 'Changelog', link: '/en/mods/r-ui-lib/changelog' }
+            ] },
             { text: 'For players', items: [{ text: 'Install and requirements', link: '/en/mods/r-ui-lib/player/' }] },
             {
               text: 'For developers',
@@ -64,19 +67,18 @@ export default defineConfig({
                 { text: 'Loaders and validation', link: '/en/mods/r-ui-lib/technical/loaders-and-validation' }
               ]
             },
-            { text: 'Project history', collapsed: true, items: [{ text: 'Archived plans', link: '/en/mods/r-ui-lib/history/archived-plans' }] }
           ],
           '/en/mods/flight-safety-instruments/': [
-            { text: 'Flight Safety Instruments', items: [{ text: 'Overview', link: '/en/mods/flight-safety-instruments/' }] },
-            { text: 'For players', items: [{ text: 'Install and use', link: '/en/mods/flight-safety-instruments/player/' }] },
-            { text: 'For developers', items: [
-              { text: 'CC:Tweaked API and examples', link: '/en/mods/flight-safety-instruments/technical/cc-tweaked' },
-              { text: 'Sensor behavior', link: '/en/mods/flight-safety-instruments/technical/sensors' },
-              { text: 'Avionics Cable Network', link: '/en/mods/flight-safety-instruments/technical/avionics-network' },
-              { text: 'Modular Table', link: '/en/mods/flight-safety-instruments/technical/modular-table' },
-              { text: 'Flight Management System', link: '/en/mods/flight-safety-instruments/technical/fms' },
-              { text: 'GPWS Computer', link: '/en/mods/flight-safety-instruments/technical/gpws' }
-            ] }
+            { text: 'Fly by Instruments - 0.1.0', items: [
+              { text: 'Overview', link: '/en/mods/flight-safety-instruments/' },
+              { text: 'Changelog', link: '/en/mods/flight-safety-instruments/changelog' }
+            ] },
+            { text: 'For players', items: [
+              { text: 'Install and use', link: '/en/mods/flight-safety-instruments/player/' },
+              { text: 'Sensors', link: '/en/mods/flight-safety-instruments/player/sensors' },
+              { text: 'Computer Craft', link: '/en/mods/flight-safety-instruments/player/computer-craft' }
+            ] },
+            { text: 'For developers', items: [{ text: 'Development setup', link: '/en/mods/flight-safety-instruments/technical/development' }] }
           ]
         },
         search: { provider: 'local' }
@@ -92,11 +94,14 @@ export default defineConfig({
         nav: [
           { text: 'Mods', link: '/pt-BR/mods/' },
           { text: 'R-Ui Lib', link: '/pt-BR/mods/r-ui-lib/' },
-          { text: 'Flight Safety Instruments', link: '/pt-BR/mods/flight-safety-instruments/' }
+          { text: 'Fly by Instruments', link: '/pt-BR/mods/flight-safety-instruments/' }
         ],
         sidebar: {
           '/pt-BR/mods/r-ui-lib/': [
-            { text: 'R-Ui Lib', items: [{ text: 'Visão geral', link: '/pt-BR/mods/r-ui-lib/' }] },
+            { text: 'R-Ui Lib - 0.7.0', items: [
+              { text: 'Visão geral', link: '/pt-BR/mods/r-ui-lib/' },
+              { text: 'Changelog', link: '/pt-BR/mods/r-ui-lib/changelog' }
+            ] },
             { text: 'Para jogadores', items: [{ text: 'Instalação e requisitos', link: '/pt-BR/mods/r-ui-lib/player/' }] },
             {
               text: 'Para desenvolvedores',
@@ -108,19 +113,18 @@ export default defineConfig({
                 { text: 'Loaders e validação', link: '/pt-BR/mods/r-ui-lib/technical/loaders-and-validation' }
               ]
             },
-            { text: 'Histórico do projeto', collapsed: true, items: [{ text: 'Planos arquivados', link: '/pt-BR/mods/r-ui-lib/history/archived-plans' }] }
           ],
           '/pt-BR/mods/flight-safety-instruments/': [
-            { text: 'Flight Safety Instruments', items: [{ text: 'Visão geral', link: '/pt-BR/mods/flight-safety-instruments/' }] },
-            { text: 'Para jogadores', items: [{ text: 'Instalação e uso', link: '/pt-BR/mods/flight-safety-instruments/player/' }] },
-            { text: 'Para desenvolvedores', items: [
-              { text: 'API CC:Tweaked e exemplos', link: '/pt-BR/mods/flight-safety-instruments/technical/cc-tweaked' },
-              { text: 'Funcionamento dos sensores', link: '/pt-BR/mods/flight-safety-instruments/technical/sensors' },
-              { text: 'Avionics Cable Network', link: '/pt-BR/mods/flight-safety-instruments/technical/avionics-network' },
-              { text: 'Modular Table', link: '/pt-BR/mods/flight-safety-instruments/technical/modular-table' },
-              { text: 'Flight Management System', link: '/pt-BR/mods/flight-safety-instruments/technical/fms' },
-              { text: 'GPWS Computer', link: '/pt-BR/mods/flight-safety-instruments/technical/gpws' }
-            ] }
+            { text: 'Fly by Instruments - 0.1.0', items: [
+              { text: 'Visão geral', link: '/pt-BR/mods/flight-safety-instruments/' },
+              { text: 'Changelog', link: '/pt-BR/mods/flight-safety-instruments/changelog' }
+            ] },
+            { text: 'Para jogadores', items: [
+              { text: 'Instalação e uso', link: '/pt-BR/mods/flight-safety-instruments/player/' },
+              { text: 'Sensors', link: '/pt-BR/mods/flight-safety-instruments/player/sensors' },
+              { text: 'Computer Craft', link: '/pt-BR/mods/flight-safety-instruments/player/computer-craft' }
+            ] },
+            { text: 'Para desenvolvedores', items: [{ text: 'Ambiente de desenvolvimento', link: '/pt-BR/mods/flight-safety-instruments/technical/development' }] }
           ]
         },
         search: {

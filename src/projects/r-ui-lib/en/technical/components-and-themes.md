@@ -16,7 +16,7 @@ R-Ui Lib builds screens from composable components. Add children to a root layou
 | Controls | `Button`, `IconButton`, `Toggle`, `Chip`, `Tabs`, `Select`, `TextField`, `SearchField`, `Slider` | Let players make choices and enter values |
 | Data and feedback | `ItemSlot`, `InventoryGrid`, `ProgressBar`, `Table`, `Modal`, toast notifications | Select items, show data, and communicate results |
 
-The exact API is defined by the released library JAR. Prefer the version's public classes and methods over historical design plans.
+The exact API is defined by the documented library release. Use that release's public classes and methods.
 
 See [one example for every component](./component-examples) for focused snippets you can adapt to your screen.
 

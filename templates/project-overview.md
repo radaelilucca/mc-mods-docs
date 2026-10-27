@@ -5,9 +5,11 @@ description: One sentence describing this project's player-visible purpose.
 
 # Project name
 
+<!-- For mods, put the official CurseForge link here before the description. Ask for the URL if it is missing. -->
+
 Describe what players or developers can do with this project. Keep the opening useful without requiring implementation knowledge.
 
-| Minecraft | Loader | Supported release |
+| Minecraft | Loader | Documented release |
 | --- | --- | --- |
 | Version | Loader | Version |
 
@@ -19,6 +21,6 @@ Describe what players or developers can do with this project. Keep the opening u
 
 [Technical guide](./technical/)
 
-## Project history
+## Changelog
 
-Link only to reviewed historical plans or reports and state their status.
+[Changelog for Project name](./changelog)

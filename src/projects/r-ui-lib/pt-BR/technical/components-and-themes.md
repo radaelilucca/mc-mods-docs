@@ -16,7 +16,7 @@ A R-Ui Lib compõe telas usando componentes. Adicione elementos a um layout raiz
 | Controles | `Button`, `IconButton`, `Toggle`, `Chip`, `Tabs`, `Select`, `TextField`, `SearchField`, `Slider` | Permitir escolhas e entrada de valores |
 | Dados e retorno visual | `ItemSlot`, `InventoryGrid`, `ProgressBar`, `Table`, `Modal`, notificações toast | Selecionar itens, mostrar dados e comunicar resultados |
 
-A API exata é definida pelo JAR da versão publicada. Prefira as classes e métodos públicos dessa versão aos planos de design históricos.
+A API exata é definida pela versão documentada da biblioteca. Use as classes e métodos públicos dessa versão.
 
 Veja [um exemplo de cada componente](./component-examples) para adaptar trechos focados à sua tela.
 

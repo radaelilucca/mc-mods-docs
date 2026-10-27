@@ -18,7 +18,7 @@ A reusable client-side interface library for Minecraft mods.
 
 [Open R-Ui Lib documentation](/en/mods/r-ui-lib/index.md)
 
-## Flight Safety Instruments
+## Fly by Instruments
 
 Avionics sensors and technical CC:Tweaked integrations for Create Aeronautics.
 
@@ -27,4 +27,4 @@ Avionics sensors and technical CC:Tweaked integrations for Create Aeronautics.
 - **For players:** sensor setup and redstone outputs
 - **For developers:** peripheral APIs, Lua examples, network, FMS, and GPWS references
 
-[Open Flight Safety Instruments documentation](/en/mods/flight-safety-instruments/index.md)
+[Open Fly by Instruments documentation](/en/mods/flight-safety-instruments/index.md)

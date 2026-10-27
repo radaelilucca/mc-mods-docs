@@ -1,22 +1,28 @@
 ---
-title: Flight Safety Instruments
+title: Fly by Instruments
 description: Sensores aviônicos, saídas de redstone e integração CC:Tweaked para Create Aeronautics.
 ---
 
-# Flight Safety Instruments
+# Fly by Instruments
 
-Flight Safety Instruments adiciona blocos aviônicos para naves do Create Aeronautics. Radar Altimeters e Terrain Scanners medem o mundo ao redor da aeronave e disponibilizam leituras por redstone e CC:Tweaked. O conjunto experimental acrescenta Modular Table, FMS, rede de cabos e GPWS Computer.
+[Página no CurseForge](https://www.curseforge.com/minecraft/mc-mods/aeronautics-fly-by-instruments)
+
+Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. Radar Altimeters e Terrain Scanners medem o mundo ao redor da aeronave e disponibilizam leituras por redstone e CC:Tweaked. O conjunto experimental acrescenta Modular Table, FMS, rede de cabos e GPWS Computer.
+
+**Documentação referente à versão 0.1.0 de Fly by Instruments** · Minecraft 1.21.1 · NeoForge.
 
 ![Modelo do Radar Altimeter](../assets/radar-altimeter.png)
 
 ## Documentação
 
-- [Guia do jogador: requisitos, instalação e primeiro sensor](player/)
-- [Referência dos peripherals CC:Tweaked e exemplos Lua](technical/cc-tweaked)
-- [Funcionamento do Radar Altimeter e dos Terrain Scanners](technical/sensors)
-- [Avionics Cable Network e Network Bridge](technical/avionics-network)
-- [Modular Table, módulos e peripheral](technical/modular-table)
-- [Flight Management System](technical/fms)
-- [GPWS Computer e canais de alerta](technical/gpws)
+- [Instalação e uso](player/)
+- [Sensors](player/sensors)
+- [Computer Craft](player/computer-craft)
+
+A documentação inicial para jogadores cobre os blocos lançados Radar Altimeter, Terrain Scanner e Advanced Terrain Scanner. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
+
+## Changelog
+
+[Consultar notas de versão](./changelog)
 
 Os sensores são os blocos lançados com receitas. Os demais blocos aviônicos estão marcados como Experimental e não têm receitas na versão atual; o comportamento pode mudar.
