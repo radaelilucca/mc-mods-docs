@@ -17,3 +17,14 @@ Uma biblioteca de interface client-side para outros mods de Minecraft.
 - **Para desenvolvedores:** integração, referência de componentes, temas e validação do desenvolvimento
 
 [Abrir a documentação da R-Ui Lib](/pt-BR/mods/r-ui-lib/index.md)
+
+## Flight Safety Instruments
+
+Sensores aviônicos e integrações técnicas CC:Tweaked para Create Aeronautics.
+
+- **Minecraft:** 1.21.1
+- **Loader:** NeoForge
+- **Para jogadores:** configuração dos sensores e saídas de redstone
+- **Para desenvolvedores:** APIs de peripherals, exemplos Lua, rede, FMS e GPWS
+
+[Abrir a documentação de Flight Safety Instruments](/pt-BR/mods/flight-safety-instruments/index.md)

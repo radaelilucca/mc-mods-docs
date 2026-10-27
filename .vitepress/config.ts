@@ -47,7 +47,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Mods', link: '/en/mods/' },
-          { text: 'R-Ui Lib', link: '/en/mods/r-ui-lib/' }
+          { text: 'R-Ui Lib', link: '/en/mods/r-ui-lib/' },
+          { text: 'Flight Safety Instruments', link: '/en/mods/flight-safety-instruments/' }
         ],
         sidebar: {
           '/en/mods/r-ui-lib/': [
@@ -64,6 +65,18 @@ export default defineConfig({
               ]
             },
             { text: 'Project history', collapsed: true, items: [{ text: 'Archived plans', link: '/en/mods/r-ui-lib/history/archived-plans' }] }
+          ],
+          '/en/mods/flight-safety-instruments/': [
+            { text: 'Flight Safety Instruments', items: [{ text: 'Overview', link: '/en/mods/flight-safety-instruments/' }] },
+            { text: 'For players', items: [{ text: 'Install and use', link: '/en/mods/flight-safety-instruments/player/' }] },
+            { text: 'For developers', items: [
+              { text: 'CC:Tweaked API and examples', link: '/en/mods/flight-safety-instruments/technical/cc-tweaked' },
+              { text: 'Sensor behavior', link: '/en/mods/flight-safety-instruments/technical/sensors' },
+              { text: 'Avionics Cable Network', link: '/en/mods/flight-safety-instruments/technical/avionics-network' },
+              { text: 'Modular Table', link: '/en/mods/flight-safety-instruments/technical/modular-table' },
+              { text: 'Flight Management System', link: '/en/mods/flight-safety-instruments/technical/fms' },
+              { text: 'GPWS Computer', link: '/en/mods/flight-safety-instruments/technical/gpws' }
+            ] }
           ]
         },
         search: { provider: 'local' }
@@ -78,7 +91,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Mods', link: '/pt-BR/mods/' },
-          { text: 'R-Ui Lib', link: '/pt-BR/mods/r-ui-lib/' }
+          { text: 'R-Ui Lib', link: '/pt-BR/mods/r-ui-lib/' },
+          { text: 'Flight Safety Instruments', link: '/pt-BR/mods/flight-safety-instruments/' }
         ],
         sidebar: {
           '/pt-BR/mods/r-ui-lib/': [
@@ -95,6 +109,18 @@ export default defineConfig({
               ]
             },
             { text: 'Histórico do projeto', collapsed: true, items: [{ text: 'Planos arquivados', link: '/pt-BR/mods/r-ui-lib/history/archived-plans' }] }
+          ],
+          '/pt-BR/mods/flight-safety-instruments/': [
+            { text: 'Flight Safety Instruments', items: [{ text: 'Visão geral', link: '/pt-BR/mods/flight-safety-instruments/' }] },
+            { text: 'Para jogadores', items: [{ text: 'Instalação e uso', link: '/pt-BR/mods/flight-safety-instruments/player/' }] },
+            { text: 'Para desenvolvedores', items: [
+              { text: 'API CC:Tweaked e exemplos', link: '/pt-BR/mods/flight-safety-instruments/technical/cc-tweaked' },
+              { text: 'Funcionamento dos sensores', link: '/pt-BR/mods/flight-safety-instruments/technical/sensors' },
+              { text: 'Avionics Cable Network', link: '/pt-BR/mods/flight-safety-instruments/technical/avionics-network' },
+              { text: 'Modular Table', link: '/pt-BR/mods/flight-safety-instruments/technical/modular-table' },
+              { text: 'Flight Management System', link: '/pt-BR/mods/flight-safety-instruments/technical/fms' },
+              { text: 'GPWS Computer', link: '/pt-BR/mods/flight-safety-instruments/technical/gpws' }
+            ] }
           ]
         },
         search: {
