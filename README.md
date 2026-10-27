@@ -20,9 +20,11 @@ Run `pnpm run check` to verify required translated pages and local links. Build 
 
 ## Deploy to GitHub Pages
 
-The `Deploy GitHub Pages` workflow builds and deploys the site to [https://radaelilucca.github.io/mc-mods-docs/](https://radaelilucca.github.io/mc-mods-docs/) when changes reach `master`. It also supports a manual run from the Actions tab on that branch.
+The `Deploy GitHub Pages` workflow builds and deploys the site to [https://mods.radaeli.dev/](https://mods.radaeli.dev/) when changes reach `master`. It also supports a manual run from the Actions tab on that branch.
 
-In the repository settings, open **Pages** and select **GitHub Actions** as the build and deployment source. The VitePress base path is `/mc-mods-docs/` in GitHub Actions and `/` for local development. Set the `VITEPRESS_BASE` environment variable when building for a different path, such as a custom domain.
+In the repository settings, open **Pages**, select **GitHub Actions** as the build and deployment source, and set the custom domain to `mods.radaeli.dev`. The VitePress base path is `/` both in GitHub Actions and during local development. Set `VITEPRESS_BASE` only when intentionally building for a different path.
+
+Point the `mods` DNS record to `radaelilucca.github.io`. Once GitHub verifies the domain and provisions its certificate, enable **Enforce HTTPS** in the Pages settings.
 
 ## Add a project
 

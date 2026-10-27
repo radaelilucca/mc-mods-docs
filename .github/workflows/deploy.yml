@@ -46,6 +46,8 @@ jobs:
         run: pnpm run check
 
       - name: Build site
+        env:
+          VITEPRESS_BASE: /
         run: pnpm run build
 
       - name: Configure GitHub Pages

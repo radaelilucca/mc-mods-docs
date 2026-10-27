@@ -33,7 +33,7 @@ export default defineConfig({
   title: 'Radaeli Mods',
   description: 'Player guides and technical documentation for Radaeli Minecraft mods.',
   lang: 'en-US',
-  base: process.env.VITEPRESS_BASE ?? (process.env.GITHUB_ACTIONS ? '/mc-mods-docs/' : '/'),
+  base: process.env.VITEPRESS_BASE ?? '/',
   srcDir: 'src',
   cleanUrls: true,
   rewrites: (source) => rewriteProjectPage(source) ?? source,
