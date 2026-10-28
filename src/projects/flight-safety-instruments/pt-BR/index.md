@@ -7,7 +7,7 @@ description: Sensores aviônicos, saídas de redstone e integração CC:Tweaked 
 
 [Página no CurseForge](https://www.curseforge.com/minecraft/mc-mods/aeronautics-fly-by-instruments)
 
-Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. Radar Altimeters e Terrain Scanners medem o mundo ao redor da aeronave e disponibilizam leituras por redstone e CC:Tweaked. O conjunto experimental acrescenta Modular Table, FMS, rede de cabos e GPWS Computer.
+Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. Radar Altimeters e Terrain Scanners medem o mundo ao redor da aeronave e disponibilizam leituras por redstone e CC:Tweaked. O conjunto experimental acrescenta o Avionics Computer com seu GPWS, a Modular Table do cockpit com lâmpadas, buzzers e FMS, e o Avionics Wire que liga tudo.
 
 **Documentação referente à versão 0.1.0 de Fly by Instruments** · Minecraft 1.21.1 · NeoForge.
 
@@ -16,10 +16,18 @@ Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. 
 ## Documentação
 
 - [Instalação e uso](player/)
-- [Sensors](player/sensors)
+- [Sensors](player/sensors): Radar Altimeter, Terrain Scanner e Advanced Terrain Scanner
+- [Avionics Computer e GPWS](player/avionics-computer) (Experimental)
+- [Modular Table](player/modular-table): lâmpadas, buzzer e FMS (Experimental)
+- [Avionics Wire](player/avionics-network): conectores, suportes e Wiring View (Experimental)
 - [Computer Craft](player/computer-craft)
 
-A documentação inicial para jogadores cobre os blocos lançados Radar Altimeter, Terrain Scanner e Advanced Terrain Scanner. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
+Os sensores estão documentados como lançados na 0.1.0. As páginas Experimental descrevem o conjunto aviônico como está nas versões de desenvolvimento. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
+
+| | |
+| --- | --- |
+| ![Avionics Computer](../assets/avionics-computer.png) | ![Modular Table com módulos](../assets/modular-table.png) |
+| ![Avionics Wire entre um computador e um scanner](../assets/avionics-wire.png) | ![Modular Table acoplada a um Avionics Computer](../assets/table-docked.png) |
 
 ## Changelog
 

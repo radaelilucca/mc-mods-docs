@@ -76,6 +76,9 @@ export default defineConfig({
             { text: 'For players', items: [
               { text: 'Install and use', link: '/en/mods/flight-safety-instruments/player/' },
               { text: 'Sensors', link: '/en/mods/flight-safety-instruments/player/sensors' },
+              { text: 'Avionics Computer and GPWS', link: '/en/mods/flight-safety-instruments/player/avionics-computer' },
+              { text: 'Modular Table', link: '/en/mods/flight-safety-instruments/player/modular-table' },
+              { text: 'Avionics Wire', link: '/en/mods/flight-safety-instruments/player/avionics-network' },
               { text: 'Computer Craft', link: '/en/mods/flight-safety-instruments/player/computer-craft' }
             ] },
             { text: 'For developers', items: [{ text: 'Development setup', link: '/en/mods/flight-safety-instruments/technical/development' }] }
@@ -122,6 +125,9 @@ export default defineConfig({
             { text: 'Para jogadores', items: [
               { text: 'Instalação e uso', link: '/pt-BR/mods/flight-safety-instruments/player/' },
               { text: 'Sensors', link: '/pt-BR/mods/flight-safety-instruments/player/sensors' },
+              { text: 'Avionics Computer e GPWS', link: '/pt-BR/mods/flight-safety-instruments/player/avionics-computer' },
+              { text: 'Modular Table', link: '/pt-BR/mods/flight-safety-instruments/player/modular-table' },
+              { text: 'Avionics Wire', link: '/pt-BR/mods/flight-safety-instruments/player/avionics-network' },
               { text: 'Computer Craft', link: '/pt-BR/mods/flight-safety-instruments/player/computer-craft' }
             ] },
             { text: 'Para desenvolvedores', items: [{ text: 'Ambiente de desenvolvimento', link: '/pt-BR/mods/flight-safety-instruments/technical/development' }] }

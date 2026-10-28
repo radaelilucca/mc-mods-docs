@@ -24,7 +24,6 @@ Avionics sensors and technical CC:Tweaked integrations for Create Aeronautics.
 
 - **Minecraft:** 1.21.1
 - **Loader:** NeoForge
-- **For players:** sensor setup and redstone outputs
-- **For developers:** peripheral APIs, Lua examples, network, FMS, and GPWS references
+- **For players:** sensors, the Avionics Computer and its GPWS, the Modular Table, the Avionics Wire, and Computer Craft
 
 [Open Fly by Instruments documentation](/en/mods/flight-safety-instruments/index.md)

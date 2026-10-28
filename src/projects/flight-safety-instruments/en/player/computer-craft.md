@@ -4,11 +4,11 @@ title: Computer Craft
 
 # Computer Craft
 
-CC:Tweaked is an in-game integration for reading sensors, building displays and automation, querying the avionics network, managing FMS waypoints, and responding to GPWS alerts. All code examples and peripheral APIs are collected here for players.
+CC:Tweaked is an in-game integration for reading sensors, building displays and automation, querying the avionics network, managing FMS waypoints, and responding to Avionics Computer (GPWS) alerts. All code examples and peripheral APIs are collected here for players.
 
 ## Connect a computer
 
-Install CC:Tweaked 1.120.0 or newer. Place a computer or wired modem against the block you want to query, or connect it through CC:Tweaked's wired modem network. Sensor, GPWS, and table peripherals are separate from the Avionics Cable Network. The Network Bridge is the CC:Tweaked entry point for inspecting that in-game cable network.
+Install CC:Tweaked 1.120.0 or newer. Place a computer or wired modem against the block you want to query, or connect it through CC:Tweaked's wired modem network. Sensor, Avionics Computer, and table peripherals are separate from the avionics network.
 
 Find a device by its peripheral type:
 
@@ -25,10 +25,9 @@ Use `peripheral.find(type)` for a single device. If several devices share a type
 - [Radar Altimeter](#radar-altimeter-api)
 - [Terrain Scanner](#terrain-scanner-api)
 - [Advanced Terrain Scanner](#advanced-terrain-scanner-api)
-- [Avionics Network Bridge](#avionics-network-bridge-api)
 - [Modular Table](#modular-table-api)
 - [FMS waypoint API and Navigator](#fms-and-navigator-api)
-- [GPWS Computer](#gpws-computer-api)
+- [Avionics Computer](#avionics-computer-api)
 
 ## Read snapshots and events
 
@@ -49,7 +48,7 @@ Terrain scan coverage can be partial near unloaded chunks. A partial scan can st
 
 ![Radar Altimeter](../../assets/radar-altimeter.png)
 
-The `radar_altimeter` peripheral returns the measured clearance below the sensor. The independent peripheral works without an Avionics Cable Network.
+The `radar_altimeter` peripheral returns the measured clearance below the sensor. The independent peripheral works without the avionics network.
 
 ### Reading contract
 
@@ -88,7 +87,7 @@ The peripheral also exposes `getOutputs()`, `getOutputConfiguration()`, `setOutp
 
 ![Terrain Scanner](../../assets/terrain-scanner.png)
 
-The `terrain_scanner` peripheral reports obstacle contacts in front of the block. It works independently of an Avionics Cable Network.
+The `terrain_scanner` peripheral reports obstacle contacts in front of the block. It works independently of the avionics network.
 
 ### Read a scan
 
@@ -117,6 +116,10 @@ Any completed ray makes a sample `valid`, even with partial coverage. If no ray 
 
 The Basic Terrain Scanner uses nine rays at a fixed 90° total aperture. It follows its horizontal facing, including upside-down placement, and ignores entities and its host sublevel. `terrainScannerMaxRange` defaults to 128 blocks; the shared scan interval defaults to 5 ticks.
 
+### Aircraft side
+
+Both scanners report which side of the craft they watch, which the [Avionics Computer](#avionics-computer-api) uses for the scanner's role. `getAircraftSide()` returns `unset`, `front`, `rear`, `left` or `right`. `setAircraftSide(side)` accepts any of these values and returns whether it was applied.
+
 ### Redstone output
 
 The peripheral exposes `getOutputs()`, `getOutputConfiguration()`, `setOutputRange(channel, min, max)`, and `setLinkFrequencies(channel, first, second)`. Output increases as a contact gets closer. A complete frequency pair selects Create Redstone Link; otherwise signals emit from block faces.
@@ -133,7 +136,7 @@ For the Advanced scanner, see [its API](#advanced-terrain-scanner-api).
 
 ![Advanced Terrain Scanner](../../assets/terrain-scanner-advanced.png)
 
-The `terrain_scanner_advanced` peripheral reports contacts through independent `front`, `left`, and `right` channels. It works without an Avionics Cable Network.
+The `terrain_scanner_advanced` peripheral reports contacts through independent `front`, `left`, and `right` channels. It works without the avionics network.
 
 ### Read a scan
 
@@ -164,31 +167,6 @@ The scanner follows its horizontal facing, including upside-down placement, and 
 
 A complete frequency pair selects Create Redstone Link output. Link mode is global, so provide a complete pair for every channel that should broadcast. Otherwise, signal emits from block faces. `setOutputMode("faces"|"link")` remains for compatibility and validates the value, but routing follows the frequency pairs. Changes emit `sensor_outputs_changed` and `sensor_output_configuration_changed` with updated snapshots.
 
-## Avionics Network Bridge API
-
-Avionics Cable connects compatible instrument endpoints for data. Place cable blocks next to one another to make lines and branches, then attach an `avionics_network_bridge` to the cable network. The Bridge reports network topology; read each instrument's values from that instrument's own peripheral.
-
-`getNetworkStatus()` returns `{status, connected, complete, cableCount, endpointCount}`. Status is `disconnected`, `connected`, `incomplete`, or `limit_exceeded`. Only a complete traversal reports `connected = true`. Counts from an incomplete traversal are lower bounds, and `getConnectedDevices()` returns no partial list when the network is incomplete or over the visit limit. Each complete device entry has `{type, x, y, z}` relative to the Bridge.
-
-```lua
-local bridge = assert(peripheral.find("avionics_network_bridge"), "Bridge missing")
-local status = bridge.getNetworkStatus()
-print(status.status, status.cableCount, status.endpointCount)
-
-if status.complete then
-  for _, device in ipairs(bridge.getConnectedDevices()) do
-    print(device.type, device.x, device.y, device.z)
-  end
-end
-
-while true do
-  local _, attachment, updated = os.pullEvent("avionics_network_changed")
-  print(attachment, updated.status, updated.complete)
-end
-```
-
-`avionics_network_changed` carries the Bridge attachment name and updated status. Traversal never loads chunks. Reaching an unloaded chunk produces `incomplete`; exceeding `maxAvionicsNetworkBlocks` (4096 visited blocks by default) produces `limit_exceeded`. Networks do not cross dimensions, levels, or Sable sublevels.
-
 ## Modular Table API
 
 ![FMS module](../../assets/fms-module.png)
@@ -201,7 +179,7 @@ Read the grid with `getGridSize()`, `getModules()`, and `getSlot(column, row)`. 
 
 `getGridSize()` returns `{columns = 3, rows = 3}`. `getSlot()` returns either `{occupied = false, column = ..., row = ...}` or an occupied module description with `type`, `column`, `row`, `width`, `height`, `channel`, `threshold`, `source`, `alertChannel`, `minimumSeverity`, and `buzzerVolume`. `getOutputs()` returns module descriptions plus `active`, `signal`, and current `severity`. `getPanelStatus()` reports `networkStatus`, `gpwsAvailable`, `muted`, `installedModules`, and `activeModules`.
 
-Configure alert modules with `configureAlertModule(column, row, source, channel, minimumSeverity)`. `source` is `gpws` or `test`; severity is `advisory`, `caution`, or `warning`. `applyBasicSetup()` maps installed lamps and buzzers to `gpws.any` at Caution. The local test signal uses `configureModule(...)` and `setTestSignal(channel, value)`; a module activates when the value reaches its numeric threshold. These test signals are not network sensor readings.
+Choose what a lamp or buzzer indicates with `setIndication(column, row, indication)`: `warning`, `caution`, `inop` or `function:<channel>` for lamps, and `caution` or `warning` for buzzers. `getIndications(moduleType)` lists the indications offered for `lamp` or `buzzer`. The older form `configureAlertModule(column, row, source, channel, minimumSeverity)` still works. `source` is `gpws` or `test`; severity is `advisory`, `caution`, or `warning`. `applyBasicSetup()` resets installed lamps and buzzers to the default GPWS caution indication. The local test signal uses `configureModule(...)` and `setTestSignal(channel, value)`; a module activates when the value reaches its numeric threshold. These test signals are not network sensor readings.
 
 ```lua
 local panel = assert(peripheral.find("modular_table"), "Table missing")
@@ -220,11 +198,11 @@ Other methods include `getAvailableChannels()`, `getPanelStatus()`, `setBuzzerVo
 
 `applyBasicSetup()` returns the number of lamp/buzzer modules configured. `getAvailableChannels()` lists `gpws.any`, `gpws.terrain`, `gpws.pull_up`, `gpws.sink_rate`, `gpws.dont_sink`, `gpws.too_low`, `gpws.bank_angle`, and `gpws.sensor_fail`. The legacy `configureModule(column, row, channel, threshold)` configures an installed lamp for local test values. `setTestSignal(channel, value)` updates that local signal. `configureAlertModule(...)`, `setBuzzerVolume(...)`, and the lamp test methods return booleans; invalid grid coordinates or unsupported modules raise Lua errors.
 
-Events include `modular_table_changed(attachment, action, module)`, `modular_table_signal_changed(attachment, channel, value)`, `modular_table_alert_outputs_changed(attachment, panelStatus, outputs)`, and `modular_table_panel_state_changed(attachment, state, value)`. They report changes confirmed by the server. See [FMS waypoint controls](#fms-and-navigator-api) for waypoint methods and [GPWS Computer](#gpws-computer-api) for alert settings.
+Events include `modular_table_changed(attachment, action, module)`, `modular_table_signal_changed(attachment, channel, value)`, `modular_table_alert_outputs_changed(attachment, panelStatus, outputs)`, and `modular_table_panel_state_changed(attachment, state, value)`. They report changes confirmed by the server. See [FMS waypoint controls](#fms-and-navigator-api) for waypoint methods and [Avionics Computer](#avionics-computer-api) for alert settings.
 
-### Use the cable network
+### Use the avionics network
 
-`getNetworkSignals()` reads typed channel snapshots published by endpoints on the connected, complete Avionics Cable Network. It does not replace the [Network Bridge](#avionics-network-bridge-api), which reports topology. If the traversal is incomplete, do not treat an empty result as proof that no endpoint exists.
+`getNetworkSignals()` reads typed channel snapshots published by devices on the connected, complete avionics network. If the traversal is incomplete, do not treat an empty result as proof that no endpoint exists.
 
 ## FMS and Navigator API
 
@@ -260,63 +238,41 @@ Waypoint names accept 1–32 characters. New waypoints use the current dimension
 
 Select an `fms_navigator` in the Navigator tab of the FMS interface to bind it to that exact module; the item is not consumed. Replacing an item bound to another FMS requires confirmation. Insert the bound item into an Aeronautics Navigation Table to follow the selected waypoint. The target must be loaded in the same level and Sable sublevel; the lookup does not load chunks. Waypoint Y does not affect the compass direction. FMS channels do not create GPWS alerts.
 
-## GPWS Computer API
+## Avionics Computer API
 
-![GPWS Computer](../../assets/gpws-computer.png)
+![Avionics Computer](../../assets/avionics-computer.png)
 
-The GPWS Computer reads Radar Altimeter and Terrain Scanner snapshots through a complete Avionics Cable Network. It does not raycast or load chunks. Its peripheral type is `gpws`.
+The `avionics_computer` peripheral exposes the [Avionics Computer](avionics-computer): its GPWS state, the sensors it found on the network and their roles. It never raycasts or loads chunks. Programs written for the old `gpws` peripheral must switch to `avionics_computer`; profiles, modes, phase overrides and per-channel rules no longer exist.
 
-### Read status and alerts
+### Read status, sensors and alerts
 
-Use `getStatus()` for mode, profile, phase, network state, endpoint count, clearance, vertical speed, and bank. `getAlerts()` returns an entry per channel with `state` (`inactive`, `active`, or `unavailable`), `severity`, and `gameTime`. `getConfiguration()` returns effective rules.
+| Method | Returns or does |
+| --- | --- |
+| `getStatus()` | `state` (`normal`, `caution`, `warning`, `inop`, `test`), `alert` (channel), `testing`, `sensitivity`, `flightPhase`, network (`networkStatus`, `networkComplete`, `cableCount`, `endpointCount`), `sensorCount`, and `clearance`, `verticalSpeed` and `bankAngle` with status, unit and time |
+| `getSensors()` | A list of `{type, role, x, y, z, status, unit, value?, issue?}`, coordinates relative to the computer |
+| `getAlerts()` | A table per channel with `state` (`inactive`, `active`, `unavailable`, `inhibited`), `severity`, `gameTime`, and `reason` when INOP |
+| `getConfiguration()` | `{sensitivity, inhibited}` |
+| `test()` | Runs the self-test; `false` if one is already running |
+| `setSensitivity(value)` | `low`, `normal` or `high` |
+| `setInhibited(function, inhibited)` | Turns a function off or back on; `sensor_fail` cannot be inhibited |
 
 ```lua
-local gpws = assert(peripheral.find("gpws"), "GPWS Computer missing")
-print(textutils.serialize(gpws.getStatus()))
-for channel, alert in pairs(gpws.getAlerts()) do
-  print(channel, alert.state, alert.severity)
+local avionics = assert(peripheral.find("avionics_computer"), "Avionics Computer missing")
+
+for _, sensor in ipairs(avionics.getSensors()) do
+  print(sensor.role, sensor.status, sensor.value or "-")
 end
 
 while true do
-  local _, attachment, alert = os.pullEvent("gpws_alert_changed")
-  print(attachment, textutils.serialize(alert))
+  local event, attachment, data = os.pullEvent()
+  if event == "avionics_status_changed" then
+    print(attachment, "state:", data.state, data.alert)
+  end
 end
 ```
 
-Other events are `gpws_flight_phase_changed`, `gpws_mode_changed`, and `gpws_configuration_changed`. Events include the attachment name and a snapshot; they fire when the relevant state changes.
+Events carry the attachment name and a snapshot: `avionics_alert_changed` (channels whose state or severity changed), `avionics_sensors_changed` (the sensor list, when a role, health or the set of sensors changes; readings alone do not fire it), `avionics_status_changed` and `avionics_configuration_changed`.
 
-### Configure the profile
+### Channels
 
-The Basic profile is the default. It arms when a complete network and valid Radar Altimeter are available; the player can turn it on/off and select `low`, `normal`, or `high` sensitivity. A Terrain Scanner is optional in Basic. The Advanced profile starts in `standby`; a computer program must arm it explicitly.
-
-```lua
-gpws.setProfile("advanced")
-gpws.setAlertConfiguration("sink_rate", "descent", {
-  cautionThreshold = 5,
-  warningThreshold = 10,
-  hysteresisPercent = 12,
-  confirmationSamples = 3,
-})
-gpws.setPhaseOverride("auto")
-gpws.setMode("armed")
-```
-
-Available setters are `setProfile("basic"|"advanced")`, `setMode("off"|"standby"|"armed"|"test")`, `setSensitivity("low"|"normal"|"high")`, `setAlertConfiguration(channel, phase, config)`, and `setPhaseOverride("auto"|phase)`. Threshold rules can be edited only in Advanced. Thresholds are finite numbers from 0 to 4096; zero disables that level. `hysteresisPercent` accepts 0–90 and `confirmationSamples` 1–20. Invalid writes return false without changing state.
-
-Phases accepted by configuration are `ground`, `takeoff`, `climb`, `cruise`, `descent`, `approach`, and `unknown`. Threshold meaning is channel-specific: `TERRAIN` uses contact distance; `PULL_UP` uses central contact distance and `secondaryWarningThreshold` for time to ground; `SINK_RATE` uses descent speed; `DONT_SINK` uses AGL loss; `TOO_LOW` uses AGL; and `BANK_ANGLE` uses degrees. `inhibited = true` immediately disables that channel/phase rule.
-
-### Alerts and limits
-
-Channels include `TERRAIN`, `PULL_UP`, `SINK_RATE`, `DONT_SINK`, `TOO_LOW`, `BANK_ANGLE`, and `SENSOR_FAIL`. Rules use in-game blocks, seconds, and degrees, not real-world aviation limits. Basic mode uses the mod's defaults. Incomplete scanner coverage with no known contact does not mean the route is clear. Readings older than two sensor intervals are stale. After a world reload, the mode returns to Standby; Basic arms again when its required inputs are ready, while Advanced needs an explicit arm command.
-
-| Channel | Default behavior |
-| --- | --- |
-| `TERRAIN` | Caution for a known contact within 32 blocks, or 8 blocks in Approach. |
-| `PULL_UP` | Warning for a known contact within 8 blocks in the central 45° forward cone, or time to ground ≤2 seconds while descending. |
-| `SINK_RATE` | Caution at descent ≥6 blocks/s; Warning at ≥12. |
-| `DONT_SINK` | Warning after ≥4 blocks of recent AGL loss during Takeoff/Climb, within a 5-second window. |
-| `TOO_LOW` | Outside Ground: Caution at ≤8 blocks AGL, Warning at ≤3; in Approach: ≤3 and ≤1. |
-| `BANK_ANGLE` | Outside Ground: Caution at ≥30°, Warning at ≥45°. |
-| `SENSOR_FAIL` | Caution if the network is incomplete/disconnected, the required altimeter is missing, or a relevant installed source fails or is stale. |
-
-Regular alerts use 10% hysteresis and two samples to activate/clear; `PULL_UP` activates on its first qualifying sample. Risk alerts are suppressed in Ground, Standby, and Off. Standby still reports `SENSOR_FAIL`.
+Channels are `terrain`, `pull_up`, `sink_rate`, `dont_sink`, `too_low`, `bank_angle` and `sensor_fail`. Severity is 0 to 3 (none, advisory, caution, warning). On the network the computer publishes `gpws.<channel>` and `gpws.any`, the highest severity, which the [Modular Table](#modular-table-api) lamps read. The alert envelopes are listed in the [Avionics Computer guide](avionics-computer#functions).

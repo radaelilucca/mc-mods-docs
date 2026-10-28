@@ -21,6 +21,9 @@ const flightSafetyPages = [
   'changelog.md',
   'player/index.md',
   'player/sensors.md',
+  'player/avionics-computer.md',
+  'player/modular-table.md',
+  'player/avionics-network.md',
   'player/computer-craft.md',
   'technical/development.md'
 ]
