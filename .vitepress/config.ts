@@ -69,7 +69,7 @@ export default defineConfig({
             },
           ],
           '/en/mods/flight-safety-instruments/': [
-            { text: 'Fly by Instruments - 0.1.0', items: [
+            { text: 'Fly by Instruments - 0.2.0', items: [
               { text: 'Overview', link: '/en/mods/flight-safety-instruments/' },
               { text: 'Changelog', link: '/en/mods/flight-safety-instruments/changelog' }
             ] },
@@ -118,7 +118,7 @@ export default defineConfig({
             },
           ],
           '/pt-BR/mods/flight-safety-instruments/': [
-            { text: 'Fly by Instruments - 0.1.0', items: [
+            { text: 'Fly by Instruments - 0.2.0', items: [
               { text: 'Visão geral', link: '/pt-BR/mods/flight-safety-instruments/' },
               { text: 'Changelog', link: '/pt-BR/mods/flight-safety-instruments/changelog' }
             ] },

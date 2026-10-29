@@ -18,27 +18,37 @@ Place the Radar Altimeter with its glass lens facing down. It measures clearance
 
 Place the scanner facing the area you want to watch. Its nozzle marks the forward direction. It follows its horizontal facing and can be mounted upside down while keeping that same direction. The Basic scanner uses nine rays across a fixed 90° aperture and emits its `front` channel from all block faces.
 
+Open the scanner and set **Looks at** to the side of the craft it watches: aircraft front, aircraft rear, left side or right side. A new scanner starts as **Not set**. Only the [Avionics Computer](avionics-computer) uses this setting; the redstone output does not depend on it.
+
 The scanner reports the closest detected obstacle. Its signal is strongest near an obstacle: the configured lower distance produces 15, the upper distance produces 0, and values between them are scaled across the range. The default range is 4–32 blocks.
 
 ## Advanced Terrain Scanner
 
 ![Advanced Terrain Scanner model](../../assets/terrain-scanner-advanced.png)
 
-The Advanced scanner has independent `front`, `left`, and `right` channels. Its aperture can be set from 30° to 180° and starts at 90°. Right-click the block and adjust the aperture slider. The separate Front, Left, and Right tabs configure each channel's distance range and optional Create Redstone Link frequencies. Side channels activate only above a 50° aperture; their useful coverage depends on how wide the scanner is set.
+The Advanced scanner has independent `front`, `left`, and `right` channels. Its **Aperture** can be set from 30° to 180° in 5° steps and starts at 90°. The screen shows a Front, Left and Right section, each with its own distance range and optional Create Redstone Link frequencies. Side channels activate only above a 50° aperture; below that their section shows "Needs aperture above 50°". Like the Basic scanner, it has a **Looks at** setting.
 
 Each channel uses the same proximity scale as the Basic scanner: 15 at or nearer than the lower bound, 0 at or beyond the upper bound, and a scaled value between them. Defaults are 4–32 blocks per channel. The Advanced scanner routes each channel to the matching forward, left, or right horizontal face when using block-face output.
 
 ## Configure redstone outputs
 
-Right-click any sensor to open its output configuration screen. Drag the range slider to set the near and far distances. The sensor maximum range is 128 blocks by default; the valid range must have a nonnegative lower bound and a larger upper bound no greater than the configured sensor maximum.
+Right-click any sensor to open its output screen. **Every change applies at once**: there is no Apply or Cancel button. The header shows the sensor and where its signal goes: **Block faces** or **Via Link**.
 
-The two frequency slots select output routing:
+Each channel has two distance controls, in blocks (1 block = 1 m):
 
-- Leave both slots empty to emit redstone from the block faces.
-- Put one item in each slot to configure a Create Redstone Link frequency pair. Pick items from your inventory using the item picker shown below the controls. The two slots form a frequency; they are not consumed.
-- On the Advanced Terrain Scanner, routing is global. A complete pair on any channel switches all channels to Redstone Link output. Configure a pair on every channel you want to broadcast; channels without a complete pair have no Link frequency.
+- Radar Altimeter: **Low · signal 0** and **High · signal 15**. The signal grows as the craft climbs. Default 0–32.
+- Terrain Scanners: **Near · signal 15** and **Far · signal 0**. The signal grows as an obstacle gets closer. Default 4–32.
 
-Use **Apply** to save the settings or **Cancel** to discard the draft. Settings are stored with the sensor. The Radar Altimeter's altitude signal grows as the craft gets higher; terrain scanner signals grow as obstacles get closer. A channel with no valid reading or no detected obstacle emits 0.
+Click the arrows or use the mouse wheel; hold Shift to step by 10. The two ends never cross and never pass the sensor's maximum range (128 blocks by default). A channel with no valid reading or no detected obstacle emits 0.
+
+The two frequency slots (red and blue) of a channel choose where its signal goes:
+
+- Leave both empty to emit redstone from the block faces.
+- Click a slot to open **Link frequency**: click an inventory item to copy it into the slot, or drag it onto a slot. Items are copied, never used up. **Done** or Esc goes back. Right-click a slot to clear it.
+- With both slots filled, the channel broadcasts through Create's Redstone Link. The status next to the slots reads **Block faces**, **Incomplete pair**, **Via Link** or **Off (Link mode)**.
+- On the Advanced Terrain Scanner, routing is global. A complete pair on any channel switches the whole sensor to Redstone Link, and channels without a complete pair are off. Give every channel you want to use a pair.
+
+Settings are stored with the sensor.
 
 ## Reading limits
 

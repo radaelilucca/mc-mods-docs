@@ -9,7 +9,7 @@ description: Sensores aviônicos, saídas de redstone e integração CC:Tweaked 
 
 Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. Radar Altimeters e Terrain Scanners medem o mundo ao redor da aeronave e disponibilizam leituras por redstone e CC:Tweaked. O conjunto experimental acrescenta o Avionics Computer com seu GPWS, a Modular Table do cockpit com lâmpadas, buzzers e FMS, e o Avionics Wire que liga tudo.
 
-**Documentação referente à versão 0.1.0 de Fly by Instruments** · Minecraft 1.21.1 · NeoForge.
+**Documentação referente à versão 0.2.0 de Fly by Instruments** · Minecraft 1.21.1 · NeoForge.
 
 ![Modelo do Radar Altimeter](../assets/radar-altimeter.png)
 
@@ -22,7 +22,7 @@ Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. 
 - [Avionics Wire](player/avionics-network): conectores, suportes e Wiring View (Experimental)
 - [Computer Craft](player/computer-craft)
 
-Os sensores estão documentados como lançados na 0.1.0. As páginas Experimental descrevem o conjunto aviônico como está nas versões de desenvolvimento. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
+Os sensores são os blocos lançados com receitas. As páginas Experimental cobrem o conjunto aviônico adicionado na 0.2.0. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
 
 | | |
 | --- | --- |

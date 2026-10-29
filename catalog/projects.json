@@ -13,7 +13,7 @@
     { "slug": "create-stock-market", "name": "Create Stock Market", "kind": "mod", "status": "planned" },
     { "slug": "dynamic-block-pallets", "name": "Dynamic Block Pallets", "kind": "mod", "status": "planned" },
     { "slug": "easy-block-pallets", "name": "Easy Block Pallets", "kind": "mod", "status": "planned" },
-    { "slug": "flight-safety-instruments", "name": "Fly by Instruments", "kind": "mod", "status": "planned", "documentedVersion": "0.1.0" },
+    { "slug": "flight-safety-instruments", "name": "Fly by Instruments", "kind": "mod", "status": "planned", "documentedVersion": "0.2.0" },
     { "slug": "hotbar-locker", "name": "Hotbar Locker", "kind": "mod", "status": "planned" },
     { "slug": "hqspeaker-sable-compat", "name": "HQ Speaker Sable Compatibility", "kind": "mod", "status": "planned" },
     { "slug": "keybinds-wheel", "name": "Keybinds Wheel", "kind": "mod", "status": "planned" },

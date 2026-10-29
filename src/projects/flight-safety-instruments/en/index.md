@@ -9,7 +9,7 @@ description: Avionics sensors, redstone outputs, and CC:Tweaked interfaces for C
 
 Fly by Instruments adds avionics blocks for Create Aeronautics ships. Radar Altimeters and Terrain Scanners measure the world around a craft and expose readings through redstone and CC:Tweaked. The experimental avionics suite adds the Avionics Computer with its GPWS, a cockpit Modular Table with lamps, buzzers and an FMS, and the Avionics Wire that links them.
 
-**Documentation reflects Fly by Instruments 0.1.0** · Minecraft 1.21.1 · NeoForge.
+**Documentation reflects Fly by Instruments 0.2.0** · Minecraft 1.21.1 · NeoForge.
 
 ![Radar Altimeter model](../assets/radar-altimeter.png)
 
@@ -22,7 +22,7 @@ Fly by Instruments adds avionics blocks for Create Aeronautics ships. Radar Alti
 - [Avionics Wire](player/avionics-network): connectors, supports and the Wiring View (Experimental)
 - [Computer Craft](player/computer-craft)
 
-The sensors are covered as released in 0.1.0. The Experimental pages describe the avionics suite as it stands in development builds. Computer Craft contains all CC:Tweaked and Lua instructions in one place.
+The sensors are the released, recipe-bearing blocks. The Experimental pages cover the avionics suite added in 0.2.0. Computer Craft contains all CC:Tweaked and Lua instructions in one place.
 
 | | |
 | --- | --- |

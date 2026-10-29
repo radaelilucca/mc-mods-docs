@@ -9,7 +9,7 @@ title: Instalação e uso
 - Minecraft 1.21.1 e NeoForge 21.1.236 ou mais recente
 - Create 6.0.10 ou mais recente e Create Aeronautics 1.3 ou mais recente
 - Sable 2.0.5 ou mais recente
-- R-Ui Lib 0.5.0 ou mais recente
+- R-Ui Lib 0.8.0 ou mais recente
 
 Create Aeronautics vem incluído no mod. Instale Fly by Instruments e suas dependências necessárias no cliente e no servidor.
 
