@@ -5,7 +5,7 @@ title: Avionics Computer and GPWS
 # Avionics Computer and GPWS
 
 ::: warning Experimental
-The Avionics Computer is Experimental content added in 0.2.0. It has no recipe and its behavior may change.
+The Avionics Computer is Experimental content added in 0.2.0. It can be crafted, but its behavior may change.
 :::
 
 ![Avionics Computer in normal operation (left) and in a warning (right)](../../assets/avionics-computer.png)

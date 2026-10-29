@@ -22,7 +22,7 @@ Fly by Instruments adds avionics blocks for Create Aeronautics ships. Radar Alti
 - [Avionics Wire](player/avionics-network): connectors, supports and the Wiring View (Experimental)
 - [Computer Craft](player/computer-craft)
 
-The sensors are the released, recipe-bearing blocks. The Experimental pages cover the avionics suite added in 0.2.0. Computer Craft contains all CC:Tweaked and Lua instructions in one place.
+The sensors are the stable blocks. The Experimental pages cover the avionics suite added in 0.2.0: it can be crafted, but its behavior may still change between versions. Computer Craft contains all CC:Tweaked and Lua instructions in one place.
 
 | | |
 | --- | --- |
@@ -33,4 +33,4 @@ The sensors are the released, recipe-bearing blocks. The Experimental pages cove
 
 [View release notes](./changelog)
 
-The sensors are the released, recipe-bearing blocks. Other avionics blocks are marked Experimental and have no recipes in the current release; treat their behavior as subject to change.
+Every block except the Avionics Network Bridge has a crafting recipe. Blocks marked Experimental may still change between versions; try them before relying on them in a world you care about.

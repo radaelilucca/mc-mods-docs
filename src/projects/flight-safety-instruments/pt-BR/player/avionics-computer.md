@@ -5,7 +5,7 @@ title: Avionics Computer e GPWS
 # Avionics Computer e GPWS
 
 ::: warning Experimental
-O Avionics Computer (no jogo em português, Computador de Aviônica) é conteúdo Experimental adicionado na 0.2.0. Não tem receita e o comportamento pode mudar.
+O Avionics Computer (no jogo em português, Computador de Aviônica) é conteúdo Experimental adicionado na 0.2.0. Pode ser fabricado, mas o comportamento pode mudar.
 :::
 
 ![Avionics Computer em operação normal (esquerda) e em alerta (direita)](../../assets/avionics-computer.png)

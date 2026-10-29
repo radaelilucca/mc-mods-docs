@@ -22,7 +22,7 @@ Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. 
 - [Avionics Wire](player/avionics-network): conectores, suportes e Wiring View (Experimental)
 - [Computer Craft](player/computer-craft)
 
-Os sensores são os blocos lançados com receitas. As páginas Experimental cobrem o conjunto aviônico adicionado na 0.2.0. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
+Os sensores são os blocos estáveis. As páginas Experimental cobrem o conjunto aviônico adicionado na 0.2.0: ele pode ser fabricado, mas o comportamento ainda pode mudar entre versões. Computer Craft reúne todas as instruções de CC:Tweaked e Lua em uma só página.
 
 | | |
 | --- | --- |
@@ -33,4 +33,4 @@ Os sensores são os blocos lançados com receitas. As páginas Experimental cobr
 
 [Consultar notas de versão](./changelog)
 
-Os sensores são os blocos lançados com receitas. Os demais blocos aviônicos estão marcados como Experimental e não têm receitas na versão atual; o comportamento pode mudar.
+Todos os blocos, exceto a Avionics Network Bridge, têm receita. Os blocos marcados como Experimental ainda podem mudar entre versões; teste-os antes de depender deles num mundo importante.

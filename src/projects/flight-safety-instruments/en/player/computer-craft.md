@@ -28,6 +28,7 @@ Use `peripheral.find(type)` for a single device. If several devices share a type
 - [Modular Table](#modular-table-api)
 - [FMS waypoint API and Navigator](#fms-and-navigator-api)
 - [Avionics Computer](#avionics-computer-api)
+- [Avionics Network Bridge](#avionics-network-bridge-api)
 
 ## Read snapshots and events
 
@@ -236,7 +237,7 @@ Waypoint names accept 1–32 characters. New waypoints use the current dimension
 
 ### Bind the Navigator item
 
-Select an `fms_navigator` in the Navigator tab of the FMS interface to bind it to that exact module; the item is not consumed. Replacing an item bound to another FMS requires confirmation. Insert the bound item into an Aeronautics Navigation Table to follow the selected waypoint. The target must be loaded in the same level and Sable sublevel; the lookup does not load chunks. Waypoint Y does not affect the compass direction. FMS channels do not create GPWS alerts.
+The `fms_navigator` item is the FMS Compass. Click **Link compass** on the FMS screen to bind the first one in your inventory to that exact module; the item is not consumed. A compass bound to another FMS shows **Relink to this FMS**, and the click confirms the change. Insert the bound item into an Aeronautics Navigation Table to follow the selected waypoint: unlimited range on the same ship, 256 blocks otherwise. The FMS must be loaded and the waypoint in the same dimension; the lookup does not load chunks. Waypoint Y does not affect the compass direction. FMS channels do not create GPWS alerts.
 
 ## Avionics Computer API
 
@@ -248,7 +249,7 @@ The `avionics_computer` peripheral exposes the [Avionics Computer](avionics-comp
 
 | Method | Returns or does |
 | --- | --- |
-| `getStatus()` | `state` (`normal`, `caution`, `warning`, `inop`, `test`), `alert` (channel), `testing`, `sensitivity`, `flightPhase`, network (`networkStatus`, `networkComplete`, `cableCount`, `endpointCount`), `sensorCount`, and `clearance`, `verticalSpeed` and `bankAngle` with status, unit and time |
+| `getStatus()` | `state` (`normal`, `caution`, `warning`, `inop`, `test`), `alert` (channel), `testing`, `sensitivity`, `flightPhase`, network (`networkStatus`, `networkComplete`, `endpointCount`), `sensorCount`, and `clearance`, `verticalSpeed` and `bankAngle` with status, unit and time |
 | `getSensors()` | A list of `{type, role, x, y, z, status, unit, value?, issue?}`, coordinates relative to the computer |
 | `getAlerts()` | A table per channel with `state` (`inactive`, `active`, `unavailable`, `inhibited`), `severity`, `gameTime`, and `reason` when INOP |
 | `getConfiguration()` | `{sensitivity, inhibited}` |
@@ -276,3 +277,24 @@ Events carry the attachment name and a snapshot: `avionics_alert_changed` (chann
 ### Channels
 
 Channels are `terrain`, `pull_up`, `sink_rate`, `dont_sink`, `too_low`, `bank_angle` and `sensor_fail`. Severity is 0 to 3 (none, advisory, caution, warning). On the network the computer publishes `gpws.<channel>` and `gpws.any`, the highest severity, which the [Modular Table](#modular-table-api) lamps read. The alert envelopes are listed in the [Avionics Computer guide](avionics-computer#functions).
+
+## Avionics Network Bridge API
+
+The **Avionics Network Bridge** is an Experimental, creative-only block. It joins the [avionics network](avionics-network) through a Wire Connector and lets a computer see the network's layout as the `avionics_network_bridge` peripheral. It exposes topology only: for sensor readings with roles and GPWS alerts, use the [Avionics Computer](#avionics-computer-api); each sensor also keeps its own peripheral.
+
+| Method | Returns |
+| --- | --- |
+| `getNetworkStatus()` | `{status, connected, complete, endpointCount, wireCount}` |
+| `getConnectedDevices()` | A list of `{type, x, y, z}`, coordinates relative to the bridge |
+
+`status` is `disconnected`, `connected`, `incomplete` or `limit_exceeded`; `complete` is false for the last two. On an incomplete network the counts are lower bounds and `getConnectedDevices()` returns an empty list, so a partial result is never mistaken for the whole network. The `avionics_network_changed(attachment, status)` event fires when the network changes, with the same table as `getNetworkStatus()`.
+
+```lua
+local bridge = assert(peripheral.find("avionics_network_bridge"), "Network Bridge not found")
+local network = bridge.getNetworkStatus()
+print(network.status, network.endpointCount, network.wireCount)
+
+for _, device in ipairs(bridge.getConnectedDevices()) do
+  print(device.type, device.x, device.y, device.z)
+end
+```

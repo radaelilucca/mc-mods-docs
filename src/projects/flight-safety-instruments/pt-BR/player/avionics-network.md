@@ -5,7 +5,7 @@ title: Avionics Wire
 # Avionics Wire
 
 ::: warning Experimental
-O Avionics Wire (no jogo em português, Fio Aviônico) é conteúdo Experimental adicionado na 0.2.0. Não tem receita e o comportamento pode mudar.
+O Avionics Wire (no jogo em português, Fio Aviônico) é conteúdo Experimental adicionado na 0.2.0. As peças podem ser fabricadas, mas o comportamento pode mudar.
 :::
 
 O Avionics Wire é a rede aviônica: leva dados entre os instrumentos, os sensores, o [Avionics Computer](avionics-computer) e a [Modular Table](modular-table). É um fio de verdade, que pende entre conectores e passa por suportes. Não é bloco, então não ocupa espaço.

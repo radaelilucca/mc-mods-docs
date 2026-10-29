@@ -5,7 +5,7 @@ title: Modular Table
 # Modular Table
 
 ::: warning Experimental
-The Modular Table and its modules are Experimental content. They have no recipes and their behavior may change.
+The Modular Table and its modules are Experimental content. They can be crafted, but their behavior may change.
 :::
 
 ![A Modular Table with an FMS module, a lit red lamp, an amber lamp and a buzzer](../../assets/modular-table.png)
@@ -33,7 +33,7 @@ Mount a table **directly on any face of an Avionics Computer**, on top or on a s
 | **Lamp Module (1×1)** | 1 cell | A warning light, red or amber |
 | **Lamp Module (2×1)** | 2 cells | A long warning light. Scroll while aiming at the table to turn it upright (1×2) |
 | **Buzzer Module (1×1)** | 1 cell | Beeps on alerts, from the module's position in the world |
-| **FMS Module (2×3)** | 2 × 3 cells | Flight Management System: waypoints and a heading compass |
+| **FMS (2×3)** | 2 × 3 cells | Flight Management System: waypoints and a heading compass |
 
 ### Install and remove
 
@@ -58,9 +58,9 @@ The buzzer sounds on **GPWS caution** (default, every alert) or **GPWS warning**
 
 | With an empty main hand | Result |
 | --- | --- |
-| Right-click a lamp that is off, or a buzzer | Opens that module's settings. Changes apply at once |
-| Right-click a lit lamp | Acknowledges the alert and silences the panel's buzzers, like a Master Warning. A new or worse alert sounds again |
-| Sneak + right-click a lit lamp | Opens its settings |
+| Right-click a lamp that is off, or a silent buzzer | Opens that module's settings. Changes apply at once |
+| Right-click a lit lamp or a sounding buzzer | Acknowledges the alert and silences the panel's buzzers, like a Master Warning. A new or worse alert sounds again |
+| Sneak + right-click a lit lamp or a sounding buzzer | Opens its settings |
 | Right-click an empty cell | Opens the panel: computer state, modules, lit lamps, **Test panel** and **Silence** |
 
 With a Create **Wrench**, scroll over a lamp to switch between GPWS warning and GPWS caution, or over a buzzer to change the volume in steps of 10%. A label next to the crosshair shows the current and next setting.
@@ -71,10 +71,19 @@ The table also gives off a little block light from its brightest lit lamp (`lamp
 
 ![The FMS module](../../assets/fms-module.png)
 
-Right-click any cell of the FMS to open it.
+Right-click any cell of the FMS to open it. Everything is on one panel and every click applies at once.
 
-- **Waypoints:** create, edit and delete named waypoints with X, Y and Z coordinates. **Current pos.** fills in where you stand. New waypoints use your current dimension.
-- **Select destination:** choose the active waypoint. The FMS screen on the table then shows a compass that turns with the craft's heading and marks the waypoint. With no destination the screen stays dark.
-- **FMS Compass:** link an FMS Compass item from your inventory to this exact module. The item is not used up. Put the linked compass in an Aeronautics Navigation Table and it follows the selected waypoint. The waypoint must be in the same world and loaded.
+- **Destination:** the top of the panel shows **Direct to** the active waypoint, with its distance, bearing and position. A waypoint in another dimension shows "Another dimension" instead of a distance. With no destination the panel says so, and the FMS screen on the table stays dark.
+- **Waypoints:** the list shows each waypoint with its distance. Click one to fly direct to it; click the active one again to clear the destination. Right-click a waypoint to edit it. The list scrolls after seven waypoints.
+- **New waypoint:** opens the editor already filled with your position and the name ready to type. **Use my position** fills in where you stand again. Coordinates are whole blocks; decimals round down. New waypoints use your current dimension. To delete a waypoint, open it and click **Delete**, then **Confirm delete**.
+- **Clear destination** removes the active waypoint.
+
+With a destination set, the FMS screen on the table shows a compass that turns with the craft's heading and marks the waypoint.
+
+### FMS Compass
+
+The **FMS Compass** section shows the first FMS Compass in your inventory: not in inventory, not linked, linked here, or linked to another FMS. Click **Link compass** to link it to this exact module; the item is not used up. If it already points to another FMS, the button reads **Relink to this FMS** and the click confirms the change.
+
+Put the linked compass in an Aeronautics **Navigation Table** and it steers toward the active waypoint. On the same ship as the FMS the range is unlimited; otherwise the table and the FMS must be within 256 blocks. The FMS must be loaded and the waypoint in the same dimension.
 
 Waypoints, the selected destination and the module's identity travel with the FMS item when you remove it.

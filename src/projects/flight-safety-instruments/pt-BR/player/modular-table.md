@@ -5,7 +5,7 @@ title: Modular Table
 # Modular Table
 
 ::: warning Experimental
-A Modular Table e seus módulos são conteúdo Experimental. Não têm receitas e o comportamento pode mudar.
+A Modular Table e seus módulos são conteúdo Experimental. Podem ser fabricados, mas o comportamento pode mudar.
 :::
 
 ![Uma Modular Table com um módulo FMS, uma lâmpada vermelha acesa, uma lâmpada âmbar e um buzzer](../../assets/modular-table.png)
@@ -33,7 +33,7 @@ Monte uma mesa **diretamente em qualquer face de um Avionics Computer**, em cima
 | **Lamp Module (1×1)** | 1 célula | Luz de alerta, vermelha ou âmbar |
 | **Lamp Module (2×1)** | 2 células | Luz de alerta longa. Role o scroll mirando na mesa para deixá-la em pé (1×2) |
 | **Buzzer Module (1×1)** | 1 célula | Apita nos alertas, a partir da posição do módulo no mundo |
-| **FMS Module (2×3)** | 2 × 3 células | Flight Management System: waypoints e bússola de proa |
+| **FMS (2×3)** | 2 × 3 células | Flight Management System: waypoints e bússola de proa |
 
 ### Instalar e remover
 
@@ -58,9 +58,9 @@ O buzzer toca em **Atenção GPWS** (padrão, todo alerta) ou em **Alerta GPWS**
 
 | Com a mão principal vazia | Resultado |
 | --- | --- |
-| Clique direito numa lâmpada apagada ou num buzzer | Abre a configuração do módulo. As mudanças aplicam na hora |
-| Clique direito numa lâmpada acesa | Reconhece o alerta e silencia os buzzers do painel, como um Master Warning. Um alerta novo ou pior volta a tocar |
-| Agachar + clique direito numa lâmpada acesa | Abre a configuração dela |
+| Clique direito numa lâmpada apagada ou num buzzer em silêncio | Abre a configuração do módulo. As mudanças aplicam na hora |
+| Clique direito numa lâmpada acesa ou num buzzer tocando | Reconhece o alerta e silencia os buzzers do painel, como um Master Warning. Um alerta novo ou pior volta a tocar |
+| Agachar + clique direito numa lâmpada acesa ou num buzzer tocando | Abre a configuração do módulo |
 | Clique direito numa célula vazia | Abre o painel: estado do computador, módulos, lâmpadas acesas, **Testar painel** e **Silenciar** |
 
 Com a **Wrench** do Create, role o scroll sobre uma lâmpada para alternar entre Alerta GPWS e Atenção GPWS, ou sobre um buzzer para mudar o volume de 10 em 10%. Um rótulo ao lado da mira mostra a configuração atual e a próxima.
@@ -71,10 +71,19 @@ A mesa também emite um pouco de luz de bloco a partir da lâmpada acesa mais fo
 
 ![O módulo FMS](../../assets/fms-module.png)
 
-Clique com o botão direito em qualquer célula do FMS para abri-lo.
+Clique com o botão direito em qualquer célula do FMS para abri-lo. Tudo fica num só painel e cada clique vale na hora.
 
-- **Waypoints:** crie, edite e apague waypoints com nome e coordenadas X, Y e Z. **Pos. atual** preenche onde você está. Waypoints novos usam a dimensão atual.
-- **Selecionar destino:** escolha o waypoint ativo. A tela do FMS na mesa passa a mostrar uma bússola que gira com a proa da aeronave e marca o waypoint. Sem destino, a tela fica escura.
-- **Bússola FMS:** vincule um item Bússola FMS do inventário a este módulo exato. O item não é gasto. Coloque a bússola vinculada numa Navigation Table do Aeronautics e ela segue o waypoint selecionado. O waypoint precisa estar no mesmo mundo e carregado.
+- **Destino:** o topo do painel mostra **Direto para** o waypoint ativo, com distância, rumo e posição. Um waypoint em outra dimensão mostra "Outra dimensão" no lugar da distância. Sem destino, o painel avisa e a tela do FMS na mesa fica escura.
+- **Waypoints:** a lista mostra cada waypoint com sua distância. Clique num deles para voar direto até ele; clique de novo no ativo para limpar o destino. Clique com o botão direito num waypoint para editá-lo. A lista rola a partir de sete waypoints.
+- **Novo waypoint:** abre o editor já preenchido com a sua posição e com o nome pronto para digitar. **Usar minha posição** preenche de novo onde você está. As coordenadas são blocos inteiros; decimais arredondam para baixo. Waypoints novos usam a dimensão atual. Para apagar um waypoint, abra-o e clique em **Excluir** e depois em **Confirmar exclusão**.
+- **Limpar destino** remove o waypoint ativo.
+
+Com um destino definido, a tela do FMS na mesa mostra uma bússola que gira com a proa da aeronave e marca o waypoint.
+
+### Bússola FMS
+
+A seção **Bússola FMS** mostra a primeira Bússola FMS do inventário: fora do inventário, não vinculada, vinculada aqui ou vinculada a outro FMS. Clique em **Vincular bússola** para vinculá-la a este módulo exato; o item não é gasto. Se ela já aponta para outro FMS, o botão vira **Vincular a este FMS** e o clique confirma a troca.
+
+Coloque a bússola vinculada numa **Navigation Table** do Aeronautics e ela aponta para o waypoint ativo. Na mesma nave do FMS o alcance é ilimitado; fora dela, a mesa e o FMS precisam estar a até 256 blocos. O FMS precisa estar carregado e o waypoint na mesma dimensão.
 
 Os waypoints, o destino selecionado e a identidade do módulo acompanham o item do FMS quando você o remove.
