@@ -5,7 +5,7 @@ description: Sensores aviônicos, saídas de redstone e integração CC:Tweaked 
 
 # Fly by Instruments
 
-[Página no CurseForge](https://www.curseforge.com/minecraft/mc-mods/aeronautics-fly-by-instruments)
+[![CurseForge](https://cf.way2muchnoise.eu/title/1766429.svg)](https://www.curseforge.com/minecraft/mc-mods/aeronautics-fly-by-instruments)
 
 Fly by Instruments adiciona blocos aviônicos para naves do Create Aeronautics. Radar Altimeters e Terrain Scanners medem o mundo ao redor da aeronave e disponibilizam leituras por redstone e CC:Tweaked. O conjunto experimental acrescenta o Avionics Computer com seu GPWS, a Modular Table do cockpit com lâmpadas, buzzers e FMS, e o Avionics Wire que liga tudo.
 

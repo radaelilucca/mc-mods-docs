@@ -14,7 +14,7 @@
     { "slug": "dynamic-block-pallets", "name": "Dynamic Block Pallets", "kind": "mod", "status": "planned" },
     { "slug": "easy-block-pallets", "name": "Easy Block Pallets", "kind": "mod", "status": "planned" },
     { "slug": "flight-safety-instruments", "name": "Fly by Instruments", "kind": "mod", "status": "planned", "documentedVersion": "0.2.0" },
-    { "slug": "hotbar-locker", "name": "Hotbar Locker", "kind": "mod", "status": "planned" },
+    { "slug": "hotbar-locker", "name": "Hotbar Locker", "kind": "mod", "status": "planned", "documentedVersion": "0.4.0" },
     { "slug": "hqspeaker-sable-compat", "name": "HQ Speaker Sable Compatibility", "kind": "mod", "status": "planned" },
     { "slug": "keybinds-wheel", "name": "Keybinds Wheel", "kind": "mod", "status": "planned" },
     { "slug": "minecolonies-butler", "name": "MineColonies Butler", "kind": "mod", "status": "planned" },

@@ -46,9 +46,15 @@ export default defineConfig({
       description: 'Player guides and technical documentation for Radaeli Minecraft mods.',
       themeConfig: {
         nav: [
-          { text: 'Mods', link: '/en/mods/' },
-          { text: 'R-Ui Lib', link: '/en/mods/r-ui-lib/' },
-          { text: 'Fly by Instruments', link: '/en/mods/flight-safety-instruments/' }
+          {
+            text: 'Mods',
+            items: [
+              { text: 'Project catalog', link: '/en/mods/' },
+              { text: 'R-Ui Lib', link: '/en/mods/r-ui-lib/' },
+              { text: 'Fly by Instruments', link: '/en/mods/flight-safety-instruments/' },
+              { text: 'Hotbar Locker', link: '/en/mods/hotbar-locker/' }
+            ]
+          }
         ],
         sidebar: {
           '/en/mods/r-ui-lib/': [
@@ -82,22 +88,37 @@ export default defineConfig({
               { text: 'Computer Craft', link: '/en/mods/flight-safety-instruments/player/computer-craft' }
             ] },
             { text: 'For developers', items: [{ text: 'Development setup', link: '/en/mods/flight-safety-instruments/technical/development' }] }
+          ],
+          '/en/mods/hotbar-locker/': [
+            { text: 'Hotbar Locker - 0.4.0', items: [
+              { text: 'Overview', link: '/en/mods/hotbar-locker/' },
+              { text: 'Changelog', link: '/en/mods/hotbar-locker/changelog' }
+            ] },
+            { text: 'For players', items: [
+              { text: 'Install and use', link: '/en/mods/hotbar-locker/player/' },
+              { text: 'Configuration', link: '/en/mods/hotbar-locker/player/configuration' }
+            ] }
           ]
         },
-        search: { provider: 'local' }
       }
     },
     'pt-BR': {
       label: 'Português (Brasil)',
       lang: 'pt-BR',
       link: '/pt-BR/',
-      title: 'Mods do Radaeli',
+      title: 'Radaeli Mods',
       description: 'Guias para jogadores e documentação técnica dos mods de Minecraft do Radaeli.',
       themeConfig: {
         nav: [
-          { text: 'Mods', link: '/pt-BR/mods/' },
-          { text: 'R-Ui Lib', link: '/pt-BR/mods/r-ui-lib/' },
-          { text: 'Fly by Instruments', link: '/pt-BR/mods/flight-safety-instruments/' }
+          {
+            text: 'Mods',
+            items: [
+              { text: 'Catálogo de projetos', link: '/pt-BR/mods/' },
+              { text: 'R-Ui Lib', link: '/pt-BR/mods/r-ui-lib/' },
+              { text: 'Fly by Instruments', link: '/pt-BR/mods/flight-safety-instruments/' },
+              { text: 'Hotbar Locker', link: '/pt-BR/mods/hotbar-locker/' }
+            ]
+          }
         ],
         sidebar: {
           '/pt-BR/mods/r-ui-lib/': [
@@ -131,43 +152,53 @@ export default defineConfig({
               { text: 'Computer Craft', link: '/pt-BR/mods/flight-safety-instruments/player/computer-craft' }
             ] },
             { text: 'Para desenvolvedores', items: [{ text: 'Ambiente de desenvolvimento', link: '/pt-BR/mods/flight-safety-instruments/technical/development' }] }
+          ],
+          '/pt-BR/mods/hotbar-locker/': [
+            { text: 'Hotbar Locker - 0.4.0', items: [
+              { text: 'Visão geral', link: '/pt-BR/mods/hotbar-locker/' },
+              { text: 'Changelog', link: '/pt-BR/mods/hotbar-locker/changelog' }
+            ] },
+            { text: 'Para jogadores', items: [
+              { text: 'Instalação e uso', link: '/pt-BR/mods/hotbar-locker/player/' },
+              { text: 'Configurações', link: '/pt-BR/mods/hotbar-locker/player/configuration' }
+            ] }
           ]
         },
-        search: {
-          provider: 'local',
-          options: {
-            locales: {
-              'pt-BR': {
-                translations: {
-                  button: { buttonText: 'Buscar', buttonAriaLabel: 'Buscar' },
-                  modal: {
-                    displayDetails: 'Exibir lista detalhada',
-                    resetButtonTitle: 'Limpar busca',
-                    backButtonTitle: 'Fechar busca',
-                    noResultsText: 'Nenhum resultado',
-                    footer: {
-                      selectText: 'selecionar',
-                      selectKeyAriaLabel: 'Enter',
-                      navigateText: 'navegar',
-                      navigateUpKeyAriaLabel: 'Seta para cima',
-                      navigateDownKeyAriaLabel: 'Seta para baixo',
-                      closeText: 'fechar',
-                      closeKeyAriaLabel: 'Esc'
-                    }
-                  }
+      }
+    }
+  },
+  themeConfig: {
+    i18nRouting: (_data, route, targetLocale) => translatedPath(route.data.relativePath, targetLocale === 'root' ? 'en' : targetLocale),
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          'pt-BR': {
+            translations: {
+              button: { buttonText: 'Buscar', buttonAriaLabel: 'Buscar' },
+              modal: {
+                displayDetails: 'Exibir lista detalhada',
+                resetButtonTitle: 'Limpar busca',
+                backButtonTitle: 'Fechar busca',
+                noResultsText: 'Nenhum resultado',
+                footer: {
+                  selectText: 'selecionar',
+                  selectKeyAriaLabel: 'Enter',
+                  navigateText: 'navegar',
+                  navigateUpKeyAriaLabel: 'Seta para cima',
+                  navigateDownKeyAriaLabel: 'Seta para baixo',
+                  closeText: 'fechar',
+                  closeKeyAriaLabel: 'Esc'
                 }
               }
             }
           }
         }
       }
-    }
-  },
-  themeConfig: {
-    i18nRouting: (_data, route, targetLocale) => translatedPath(route.data.relativePath, targetLocale === 'root' ? 'en' : targetLocale),
+    },
     socialLinks: [{ icon: 'github', link: 'https://github.com/radaelilucca' }],
     footer: {
-      message: 'Community documentation for Radaeli Minecraft projects.',
+      message: "Official document for Radaeli's Minecraft Projects.",
       copyright: 'Project names and trademarks belong to their respective owners.'
     }
   }

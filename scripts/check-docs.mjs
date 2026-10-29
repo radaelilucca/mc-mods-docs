@@ -27,6 +27,12 @@ const flightSafetyPages = [
   'player/computer-craft.md',
   'technical/development.md'
 ]
+const hotbarLockerPages = [
+  'index.md',
+  'changelog.md',
+  'player/index.md',
+  'player/configuration.md'
+]
 const failures = []
 
 for (const locale of locales) {
@@ -43,6 +49,13 @@ for (const locale of locales) {
   }
 }
 
+for (const locale of locales) {
+  for (const page of hotbarLockerPages) {
+    const path = join(sourceRoot, 'projects', 'hotbar-locker', locale, page)
+    if (!existsSync(path)) failures.push(`Missing ${locale} Hotbar Locker page: ${relative(root, path)}`)
+  }
+}
+
 const config = readFileSync(join(root, '.vitepress', 'config.ts'), 'utf8')
 if (!config.includes("source.match(/^projects\\/([^/]+)\\/(en|pt-BR)\\/(.+)$/)")) {
   failures.push('VitePress project rewrite does not match projects/<slug>/<locale>/... source paths.')
@@ -52,6 +65,7 @@ for (const locale of locales) {
   if (!config.includes(`'/${locale}/mods/flight-safety-instruments/`)) failures.push(`Missing ${locale} Fly by Instruments navigation or sidebar.`)
   if (!config.includes(`'/${locale}/mods/flight-safety-instruments/player/computer-craft'`)) failures.push(`Missing ${locale} Computer Craft player guide navigation.`)
   if (!config.includes(`'/${locale}/mods/flight-safety-instruments/player/sensors'`)) failures.push(`Missing ${locale} sensor player guide navigation.`)
+  if (!config.includes(`'/${locale}/mods/hotbar-locker/`)) failures.push(`Missing ${locale} Hotbar Locker navigation or sidebar.`)
 }
 
 const manifest = JSON.parse(readFileSync(join(root, 'catalog', 'projects.json'), 'utf8'))
@@ -76,7 +90,7 @@ for (const project of manifest.projects.filter((entry) => entry.documentedVersio
     }
   }
 }
-for (const slug of ['r-ui-lib', 'flight-safety-instruments']) {
+for (const slug of ['r-ui-lib', 'flight-safety-instruments', 'hotbar-locker']) {
   for (const locale of locales) {
     const changelog = join(sourceRoot, 'projects', slug, locale, 'changelog.md')
     if (existsSync(changelog) && !/^## \[\d+\.\d+\.\d+\]/m.test(readFileSync(changelog, 'utf8'))) {
@@ -155,5 +169,5 @@ if (failures.length) {
   console.error(failures.map((failure) => `- ${failure}`).join('\n'))
   process.exitCode = 1
 } else {
-  console.log(`Documentation check passed: ${requiredPages.length} translated R-Ui Lib pages, ${flightSafetyPages.length} translated Fly by Instruments pages, project routes, navigation, and local links.`)
+  console.log(`Documentation check passed: ${requiredPages.length} translated R-Ui Lib pages, ${flightSafetyPages.length} translated Fly by Instruments pages, ${hotbarLockerPages.length} translated Hotbar Locker pages, project routes, navigation, and local links.`)
 }

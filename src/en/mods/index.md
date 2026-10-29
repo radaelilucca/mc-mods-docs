@@ -27,3 +27,13 @@ Avionics sensors and technical CC:Tweaked integrations for Create Aeronautics.
 - **For players:** sensors, the Avionics Computer and its GPWS, the Modular Table, the Avionics Wire, and Computer Craft
 
 [Open Fly by Instruments documentation](/en/mods/flight-safety-instruments/index.md)
+
+## Hotbar Locker
+
+Protect selected hotbar slots from automatic item replacement.
+
+- **Minecraft:** 1.20.1 and 1.21.1
+- **Loaders:** Forge for 1.20.1; Fabric, Forge, and NeoForge for 1.21.1
+- **For players:** installation, slot locks, and settings
+
+[Open Hotbar Locker documentation](/en/mods/hotbar-locker/index.md)

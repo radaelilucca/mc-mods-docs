@@ -7,14 +7,34 @@ description: Player guides and technical documentation for Radaeli Minecraft pro
 
 Find installation and gameplay guides, compatibility details, and technical references for the projects maintained by Radaeli.
 
-## Featured project
+## Project catalog
 
 ### R-Ui Lib
 
-A reusable user interface library for Minecraft mods. It provides layouts, controls, themes, item selection, and previews for the screens of mods that use it.
+A reusable client-side interface library for Minecraft mods.
 
-[Browse R-Ui Lib documentation](/en/mods/r-ui-lib/index.md)
+- **Minecraft:** 1.20.1 and 1.21.1
+- **Loaders:** Forge and NeoForge
+- **Guides:** installation, requirements, integration, components, themes, and examples
 
-## Browse projects
+[Open R-Ui Lib documentation](/en/mods/r-ui-lib/)
 
-[See the project catalog](/en/mods/)
+### Fly by Instruments
+
+Avionics sensors and CC:Tweaked integrations for Create Aeronautics.
+
+- **Minecraft:** 1.21.1
+- **Loader:** NeoForge
+- **Guides:** sensors, avionics, wiring, and Computer Craft
+
+[Open Fly by Instruments documentation](/en/mods/flight-safety-instruments/)
+
+### Hotbar Locker
+
+Protect selected hotbar slots from automatic item replacement.
+
+- **Minecraft:** 1.20.1 and 1.21.1
+- **Loaders:** Forge for 1.20.1; Fabric, Forge, and NeoForge for 1.21.1
+- **Guides:** installation, slot locks, and settings
+
+[Open Hotbar Locker documentation](/en/mods/hotbar-locker/)
