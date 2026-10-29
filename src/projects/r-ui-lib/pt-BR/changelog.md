@@ -5,6 +5,14 @@ description: Histórico de versões da R-Ui Lib.
 
 # Changelog da R-Ui Lib
 
+## [0.8.0] - 2026-10-28
+
+### Adicionado
+
+- Adicionados botões de opção e grupos verticais com dicas, opções desabilitadas e navegação pelo teclado.
+- Adicionados steppers para números limitados e listas de opções, com setas, roda do mouse e teclado.
+- Adicionadas tooltips posicionais, para que um componente possa exibir sua dica em apenas parte de sua área.
+
 ## [0.7.0] - 2026-10-26
 
 ### Adicionado

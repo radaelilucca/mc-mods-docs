@@ -13,7 +13,7 @@ R-Ui Lib gives Minecraft mods a shared set of reusable components for building c
 | 1.20.1 | Forge | 47.4.20 |
 | 1.21.1 | NeoForge | 21.1.236 |
 
-**Documentation reflects R-Ui Lib 0.7.0.**
+**Documentation reflects R-Ui Lib 0.8.0.**
 
 ## For players
 

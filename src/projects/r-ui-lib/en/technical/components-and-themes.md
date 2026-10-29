@@ -13,10 +13,12 @@ R-Ui Lib builds screens from composable components. Add children to a root layou
 | --- | --- | --- |
 | Layout | `Row`, `Column`, `Stack`, `Grid`, `ScrollView`, `ClipStack` | Position, group, scroll, and clip content |
 | Display | `Label`, `Panel`, `Card`, `Divider`, `ItemCard` | Present text, grouped content, and item previews |
-| Controls | `Button`, `IconButton`, `Toggle`, `Chip`, `Tabs`, `Select`, `TextField`, `SearchField`, `Slider` | Let players make choices and enter values |
+| Controls | `Button`, `IconButton`, `Toggle`, `Chip`, `Tabs`, `Select`, `Radio`, `RadioGroup`, `SegmentedControl`, `Stepper`, `TextField`, `SearchField`, `Slider` | Let players make choices and enter values |
 | Data and feedback | `ItemSlot`, `InventoryGrid`, `ProgressBar`, `Table`, `Modal`, toast notifications | Select items, show data, and communicate results |
 
 The exact API is defined by the documented library release. Use that release's public classes and methods.
+
+`RadioGroup<T>` presents mutually exclusive options vertically, including optional hints and disabled options. It supports an empty initial selection; mouse selection commits on release, while Up/Down moves and commits and Home/End selects the first or last enabled option. `Stepper<T>` edits a bounded number or cycles through a supplied option model with arrow buttons, mouse wheel, and keyboard. Tooltips can be position-aware: components such as `Stepper` can return a tooltip only over the part of their bounds where it applies.
 
 See [one example for every component](./component-examples) for focused snippets you can adapt to your screen.
 

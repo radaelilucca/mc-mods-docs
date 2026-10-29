@@ -13,7 +13,7 @@ A R-Ui Lib oferece aos mods de Minecraft um conjunto compartilhado de componente
 | 1.20.1 | Forge | 47.4.20 |
 | 1.21.1 | NeoForge | 21.1.236 |
 
-**Documentação referente à versão 0.7.0 da R-Ui Lib.**
+**Documentação referente à versão 0.8.0 da R-Ui Lib.**
 
 ## Para jogadores
 

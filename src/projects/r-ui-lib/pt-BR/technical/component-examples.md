@@ -206,6 +206,25 @@ Select<String> quality = new Select<>(List.of(
 ), "low", this::setQuality);
 ```
 
+### RadioGroup
+
+Exiba opções exclusivas em uma lista vertical. Cada opção pode incluir uma dica e ser desabilitada.
+
+```java
+RadioGroup<String> qualidade = new RadioGroup<>(List.of(
+    new RadioGroup.Option<>("low", Component.literal("Baixa"), Component.literal("Mais rápida"), true),
+    new RadioGroup.Option<>("high", Component.literal("Alta"), Component.literal("Mais detalhes"), true)
+), "low", this::setQuality);
+```
+
+### Stepper
+
+Altere um número inteiro limitado com setas, roda do mouse ou teclado.
+
+```java
+Stepper<Integer> quantidade = Stepper.ofRange(Component.literal("Quantidade"), 1, 16, 1, 4, this::setCount);
+```
+
 ### SegmentedControl
 
 Ofereça poucas opções mutuamente exclusivas em linha.

@@ -25,7 +25,7 @@ Declare a dependência nos metadados do mod consumidor. Para NeoForge, uma depen
 [[dependencies.${mod_id}]]
 modId="r_ui_lib"
 type="required"
-versionRange="[0.7.0,)"
+versionRange="[0.8.0,)"
 ordering="AFTER"
 side="CLIENT"
 ```

@@ -13,10 +13,12 @@ A R-Ui Lib compõe telas usando componentes. Adicione elementos a um layout raiz
 | --- | --- | --- |
 | Layout | `Row`, `Column`, `Stack`, `Grid`, `ScrollView`, `ClipStack` | Posicionar, agrupar, rolar e recortar conteúdo |
 | Exibição | `Label`, `Panel`, `Card`, `Divider`, `ItemCard` | Apresentar texto, conteúdo agrupado e prévias de itens |
-| Controles | `Button`, `IconButton`, `Toggle`, `Chip`, `Tabs`, `Select`, `TextField`, `SearchField`, `Slider` | Permitir escolhas e entrada de valores |
+| Controles | `Button`, `IconButton`, `Toggle`, `Chip`, `Tabs`, `Select`, `Radio`, `RadioGroup`, `SegmentedControl`, `Stepper`, `TextField`, `SearchField`, `Slider` | Permitir escolhas e entrada de valores |
 | Dados e retorno visual | `ItemSlot`, `InventoryGrid`, `ProgressBar`, `Table`, `Modal`, notificações toast | Selecionar itens, mostrar dados e comunicar resultados |
 
 A API exata é definida pela versão documentada da biblioteca. Use as classes e métodos públicos dessa versão.
+
+`RadioGroup<T>` apresenta opções exclusivas em uma lista vertical, com dicas opcionais e opções desabilitadas. Pode iniciar sem seleção; a seleção pelo mouse é confirmada ao soltar o botão, enquanto Cima/Baixo move e confirma a escolha e Home/End seleciona a primeira ou última opção habilitada. `Stepper<T>` edita um número limitado ou percorre um modelo de opções usando setas, roda do mouse e teclado. Tooltips podem depender da posição: componentes como `Stepper` podem exibir uma dica apenas sobre a parte de seus limites à qual ela se aplica.
 
 Veja [um exemplo de cada componente](./component-examples) para adaptar trechos focados à sua tela.
 

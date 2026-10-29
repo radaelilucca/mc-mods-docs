@@ -25,7 +25,7 @@ Declare the dependency in the consuming mod's metadata. For NeoForge, a client-o
 [[dependencies.${mod_id}]]
 modId="r_ui_lib"
 type="required"
-versionRange="[0.7.0,)"
+versionRange="[0.8.0,)"
 ordering="AFTER"
 side="CLIENT"
 ```
