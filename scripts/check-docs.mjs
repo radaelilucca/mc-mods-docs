@@ -76,7 +76,6 @@ for (const locale of locales) {
     if (!existsSync(path)) continue
     const body = readFileSync(path, 'utf8')
     if (!body.includes('SCC 1.5.3')) failures.push(`Missing the SCC version scope in ${locale} Digital Storage Expansion page: ${relative(root, path)}`)
-    if (!/(pending|pendente)/i.test(body)) failures.push(`Missing the SCC gameplay validation status in ${locale} Digital Storage Expansion page: ${relative(root, path)}`)
   }
   for (const page of ['player/linking.md', 'player/index.md']) {
     const path = join(sourceRoot, 'projects', 'sophisticated-backpack-is-addon', locale, page)

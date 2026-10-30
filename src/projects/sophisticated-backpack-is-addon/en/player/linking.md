@@ -20,8 +20,6 @@ Each remote upgrade stores its own link to one network endpoint. All eight upgra
 
 The player must be allowed to interact with the block and access the network. Network availability, wireless range, and permissions remain controlled by the storage mod. The upgrade does not create wireless access or bypass these rules.
 
-SCC gameplay support requires version 1.5.3 or newer; full in-game validation is still pending.
-
 ## Change or remove a link
 
 To switch networks, hold the upgrade and Shift-right-click a compatible block in the new network. The new endpoint replaces the old link; the upgrade's filters and other settings stay with it.

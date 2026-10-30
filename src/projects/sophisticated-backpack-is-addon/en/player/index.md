@@ -21,7 +21,7 @@ Choose any supported storage mod and its compatible version for your game and lo
 | Tom's Simple Storage | 2.4.2 or newer | 1.7.1 |
 | Super Cool Calculator (SCC 1.5.3+) | NeoForge 1.21.1 | Not supported |
 
-Storage mods are optional dependencies. You can install more than one; each upgrade remains linked to the network you selected for it. All four networks support item upgrades where available. Remote Pump's fluid transfer works with AE2 and Refined Storage on both loaders, and SCC on NeoForge; Tom's Simple Storage is item-only. Full in-game validation of SCC gameplay is still pending.
+Storage mods are optional dependencies. You can install more than one; each upgrade remains linked to the network you selected for it. All four networks support item upgrades where available. Remote Pump's fluid transfer works with AE2 and Refined Storage on both loaders, and SCC on NeoForge; Tom's Simple Storage is item-only.
 
 ## First steps
 

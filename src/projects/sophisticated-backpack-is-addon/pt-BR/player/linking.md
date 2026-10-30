@@ -20,8 +20,6 @@ Cada upgrade remoto guarda seu próprio vínculo com um ponto da rede. Os oito t
 
 O jogador precisa ter permissão para interagir com o bloco e acessar a rede. A disponibilidade da rede, o alcance sem fio e as permissões continuam sob controle do mod de armazenamento. O upgrade não cria acesso sem fio nem contorna essas regras.
 
-O suporte de gameplay ao SCC requer a versão 1.5.3 ou mais recente; a validação completa em jogo ainda está pendente.
-
 ## Trocar ou remover o vínculo
 
 Para trocar de rede, segure o upgrade e dê Shift + clique direito em um bloco compatível da nova rede. O novo ponto substitui o antigo; filtros e outras configurações permanecem no upgrade.

@@ -44,6 +44,6 @@ Connect Sophisticated Backpacks upgrades to AE2, Refined Storage, Tom's Simple S
 
 - **Minecraft:** 1.20.1 and 1.21.1
 - **Loaders:** Forge for 1.20.1; NeoForge for 1.21.1
-- **For players:** linking, filters, and a catalog of eight upgrades; SCC gameplay validation is pending
+- **For players:** linking, filters, and a catalog of eight upgrades
 
 [Open Digital Storage Expansion documentation](/en/mods/sophisticated-backpack-is-addon/index.md)

@@ -21,7 +21,7 @@ Escolha uma das redes compatíveis e instale a versão correspondente ao seu jog
 | Tom's Simple Storage | 2.4.2 ou mais recente | 1.7.1 |
 | Super Cool Calculator (SCC 1.5.3+) | NeoForge 1.21.1 | Sem suporte |
 
-Os mods de armazenamento são dependências opcionais. Você pode instalar mais de um; cada upgrade continua vinculado à rede escolhida. As quatro redes oferecem upgrades de itens onde há suporte. Remote Pump transfere fluidos com AE2 e Refined Storage nos dois loaders e com SCC no NeoForge; Tom's Simple Storage só transfere itens. A validação completa de gameplay com SCC ainda está pendente.
+Os mods de armazenamento são dependências opcionais. Você pode instalar mais de um; cada upgrade continua vinculado à rede escolhida. As quatro redes oferecem upgrades de itens onde há suporte. Remote Pump transfere fluidos com AE2 e Refined Storage nos dois loaders e com SCC no NeoForge; Tom's Simple Storage só transfere itens.
 
 ## Primeiros passos
 
