@@ -37,3 +37,13 @@ Proteja slots escolhidos da hotbar contra substituições automáticas de itens.
 - **Para jogadores:** instalação, travas de slots e configurações
 
 [Abrir a documentação do Hotbar Locker](/pt-BR/mods/hotbar-locker/index.md)
+
+## Sophisticated Backpacks: Digital Storage Expansion
+
+Conecte upgrades do Sophisticated Backpacks ao AE2, Refined Storage, Tom's Simple Storage ou SCC no NeoForge 1.21.1.
+
+- **Minecraft:** 1.20.1 e 1.21.1
+- **Loaders:** Forge para 1.20.1; NeoForge para 1.21.1
+- **Para jogadores:** vínculo, filtros e catálogo de oito upgrades; validação de gameplay com SCC pendente
+
+[Abrir a documentação de Digital Storage Expansion](/pt-BR/mods/sophisticated-backpack-is-addon/index.md)

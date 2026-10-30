@@ -52,7 +52,8 @@ export default defineConfig({
               { text: 'Project catalog', link: '/en/mods/' },
               { text: 'R-Ui Lib', link: '/en/mods/r-ui-lib/' },
               { text: 'Fly by Instruments', link: '/en/mods/flight-safety-instruments/' },
-              { text: 'Hotbar Locker', link: '/en/mods/hotbar-locker/' }
+              { text: 'Hotbar Locker', link: '/en/mods/hotbar-locker/' },
+              { text: 'Sophisticated Backpacks: Digital Storage Expansion', link: '/en/mods/sophisticated-backpack-is-addon/' }
             ]
           }
         ],
@@ -98,6 +99,19 @@ export default defineConfig({
               { text: 'Install and use', link: '/en/mods/hotbar-locker/player/' },
               { text: 'Configuration', link: '/en/mods/hotbar-locker/player/configuration' }
             ] }
+          ],
+          '/en/mods/sophisticated-backpack-is-addon/': [
+            { text: 'Sophisticated Backpacks: Digital Storage Expansion - 0.3.0', items: [
+              { text: 'Overview', link: '/en/mods/sophisticated-backpack-is-addon/' },
+              { text: 'Changelog', link: '/en/mods/sophisticated-backpack-is-addon/changelog' }
+            ] },
+            { text: 'For players', items: [
+              { text: 'Install and use', link: '/en/mods/sophisticated-backpack-is-addon/player/' },
+              { text: 'Linking', link: '/en/mods/sophisticated-backpack-is-addon/player/linking' },
+              { text: 'Filters and source priority', link: '/en/mods/sophisticated-backpack-is-addon/player/filters' },
+              { text: 'Upgrade catalog', link: '/en/mods/sophisticated-backpack-is-addon/player/upgrades' },
+              { text: 'Configuration', link: '/en/mods/sophisticated-backpack-is-addon/player/configuration' }
+            ] }
           ]
         },
       }
@@ -116,7 +130,8 @@ export default defineConfig({
               { text: 'Catálogo de projetos', link: '/pt-BR/mods/' },
               { text: 'R-Ui Lib', link: '/pt-BR/mods/r-ui-lib/' },
               { text: 'Fly by Instruments', link: '/pt-BR/mods/flight-safety-instruments/' },
-              { text: 'Hotbar Locker', link: '/pt-BR/mods/hotbar-locker/' }
+              { text: 'Hotbar Locker', link: '/pt-BR/mods/hotbar-locker/' },
+              { text: 'Sophisticated Backpacks: Digital Storage Expansion', link: '/pt-BR/mods/sophisticated-backpack-is-addon/' }
             ]
           }
         ],
@@ -161,6 +176,19 @@ export default defineConfig({
             { text: 'Para jogadores', items: [
               { text: 'Instalação e uso', link: '/pt-BR/mods/hotbar-locker/player/' },
               { text: 'Configurações', link: '/pt-BR/mods/hotbar-locker/player/configuration' }
+            ] }
+          ],
+          '/pt-BR/mods/sophisticated-backpack-is-addon/': [
+            { text: 'Sophisticated Backpacks: Digital Storage Expansion - 0.3.0', items: [
+              { text: 'Visão geral', link: '/pt-BR/mods/sophisticated-backpack-is-addon/' },
+              { text: 'Changelog', link: '/pt-BR/mods/sophisticated-backpack-is-addon/changelog' }
+            ] },
+            { text: 'Para jogadores', items: [
+              { text: 'Instalação e uso', link: '/pt-BR/mods/sophisticated-backpack-is-addon/player/' },
+              { text: 'Vínculo', link: '/pt-BR/mods/sophisticated-backpack-is-addon/player/linking' },
+              { text: 'Filtros e prioridade de origem', link: '/pt-BR/mods/sophisticated-backpack-is-addon/player/filters' },
+              { text: 'Catálogo de upgrades', link: '/pt-BR/mods/sophisticated-backpack-is-addon/player/upgrades' },
+              { text: 'Configurações', link: '/pt-BR/mods/sophisticated-backpack-is-addon/player/configuration' }
             ] }
           ]
         },

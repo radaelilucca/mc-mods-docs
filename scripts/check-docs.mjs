@@ -33,6 +33,15 @@ const hotbarLockerPages = [
   'player/index.md',
   'player/configuration.md'
 ]
+const digitalStorageExpansionPages = [
+  'index.md',
+  'changelog.md',
+  'player/index.md',
+  'player/linking.md',
+  'player/filters.md',
+  'player/upgrades.md',
+  'player/configuration.md'
+]
 const failures = []
 
 for (const locale of locales) {
@@ -56,6 +65,27 @@ for (const locale of locales) {
   }
 }
 
+for (const locale of locales) {
+  for (const page of digitalStorageExpansionPages) {
+    const path = join(sourceRoot, 'projects', 'sophisticated-backpack-is-addon', locale, page)
+    if (!existsSync(path)) failures.push(`Missing ${locale} Digital Storage Expansion page: ${relative(root, path)}`)
+  }
+
+  for (const page of ['index.md', 'player/index.md', 'player/linking.md', 'player/upgrades.md']) {
+    const path = join(sourceRoot, 'projects', 'sophisticated-backpack-is-addon', locale, page)
+    if (!existsSync(path)) continue
+    const body = readFileSync(path, 'utf8')
+    if (!body.includes('SCC 1.5.3')) failures.push(`Missing the SCC version scope in ${locale} Digital Storage Expansion page: ${relative(root, path)}`)
+    if (!/(pending|pendente)/i.test(body)) failures.push(`Missing the SCC gameplay validation status in ${locale} Digital Storage Expansion page: ${relative(root, path)}`)
+  }
+  for (const page of ['player/linking.md', 'player/index.md']) {
+    const path = join(sourceRoot, 'projects', 'sophisticated-backpack-is-addon', locale, page)
+    if (existsSync(path) && !readFileSync(path, 'utf8').includes('Network Antenna')) {
+      failures.push(`Missing the SCC linking block in ${locale} Digital Storage Expansion page: ${relative(root, path)}`)
+    }
+  }
+}
+
 const config = readFileSync(join(root, '.vitepress', 'config.ts'), 'utf8')
 if (!config.includes("source.match(/^projects\\/([^/]+)\\/(en|pt-BR)\\/(.+)$/)")) {
   failures.push('VitePress project rewrite does not match projects/<slug>/<locale>/... source paths.')
@@ -66,6 +96,7 @@ for (const locale of locales) {
   if (!config.includes(`'/${locale}/mods/flight-safety-instruments/player/computer-craft'`)) failures.push(`Missing ${locale} Computer Craft player guide navigation.`)
   if (!config.includes(`'/${locale}/mods/flight-safety-instruments/player/sensors'`)) failures.push(`Missing ${locale} sensor player guide navigation.`)
   if (!config.includes(`'/${locale}/mods/hotbar-locker/`)) failures.push(`Missing ${locale} Hotbar Locker navigation or sidebar.`)
+  if (!config.includes(`'/${locale}/mods/sophisticated-backpack-is-addon/`)) failures.push(`Missing ${locale} Digital Storage Expansion navigation or sidebar.`)
 }
 
 const manifest = JSON.parse(readFileSync(join(root, 'catalog', 'projects.json'), 'utf8'))
@@ -90,7 +121,7 @@ for (const project of manifest.projects.filter((entry) => entry.documentedVersio
     }
   }
 }
-for (const slug of ['r-ui-lib', 'flight-safety-instruments', 'hotbar-locker']) {
+for (const slug of ['r-ui-lib', 'flight-safety-instruments', 'hotbar-locker', 'sophisticated-backpack-is-addon']) {
   for (const locale of locales) {
     const changelog = join(sourceRoot, 'projects', slug, locale, 'changelog.md')
     if (existsSync(changelog) && !/^## \[\d+\.\d+\.\d+\]/m.test(readFileSync(changelog, 'utf8'))) {
@@ -169,5 +200,5 @@ if (failures.length) {
   console.error(failures.map((failure) => `- ${failure}`).join('\n'))
   process.exitCode = 1
 } else {
-  console.log(`Documentation check passed: ${requiredPages.length} translated R-Ui Lib pages, ${flightSafetyPages.length} translated Fly by Instruments pages, ${hotbarLockerPages.length} translated Hotbar Locker pages, project routes, navigation, and local links.`)
+  console.log(`Documentation check passed: ${requiredPages.length} translated R-Ui Lib pages, ${flightSafetyPages.length} translated Fly by Instruments pages, ${hotbarLockerPages.length} translated Hotbar Locker pages, ${digitalStorageExpansionPages.length} translated Digital Storage Expansion pages, project routes, navigation, and local links.`)
 }

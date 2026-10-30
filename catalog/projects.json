@@ -24,7 +24,7 @@
     { "slug": "r-ui-lib", "name": "R-Ui Lib", "kind": "library", "status": "published", "documentedVersion": "0.8.0" },
     { "slug": "sable-horses", "name": "Sable Horses", "kind": "mod", "status": "planned" },
     { "slug": "simply-light-smart", "name": "Simply Light Smart", "kind": "mod", "status": "planned" },
-    { "slug": "sophisticated-backpack-is-addon", "name": "Sophisticated Backpacks Addon", "kind": "mod", "status": "planned" },
+    { "slug": "sophisticated-backpack-is-addon", "name": "Sophisticated Backpacks: Digital Storage Expansion", "kind": "mod", "status": "planned", "documentedVersion": "0.3.0" },
     { "slug": "sophisticatedbackpack-is-addon", "name": "Sophisticated Backpacks Addon (legacy copy)", "kind": "workspace-copy", "status": "excluded-copy" },
     { "slug": "voxy-multiversion", "name": "Voxy Multiversion", "kind": "upstream-fork", "status": "excluded-fork" }
   ]
